@@ -3,7 +3,7 @@ import {Navbar, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react
 export default function Nav() {
     return (
       <Navbar>        
-        <NavbarContent className=" text-xl flex flex-col gap-10 text-blue-800 h-[450px] w-[400px] " justify="center">
+        <NavbarContent className=" text-xl flex flex-col gap-10 text-blue-800 h-[450px] w-full ">
         <NavbarItem>
             <Link color="foreground" href="/">
               Accueil
@@ -20,8 +20,8 @@ export default function Nav() {
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="/board/infos">
-              Infos nécéssaires
+            <Link color="foreground" href="/board/travelmap">
+              Carte des voyages
             </Link>
           </NavbarItem>
           <NavbarItem>

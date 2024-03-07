@@ -9,7 +9,7 @@ body {
 
 main {
   margin-top:50px;
-  height: calc(100vh - 50px);
+  height: 94vh;
   width: full;
 }
 
@@ -19,4 +19,10 @@ section {
   padding: 4px;
   border: solid 1px;
   border-radius: 15px;;
+}
+
+.mask{
+  mask-image: url("/cache.png");
+  mask-repeat: no-repeat;
+  mask-size: cover
 }
