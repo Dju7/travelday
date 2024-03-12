@@ -2,7 +2,7 @@
 import dynamic from 'next/dynamic';
 
 export default function page() {
-  const MapWithNoSSR = dynamic(() => import("@/app/components/map/Map"), {
+  const MapWithNoSSR = dynamic(() => import("@/app/components/mapGlobal/MapG"), {
     ssr: false
   });
   return (

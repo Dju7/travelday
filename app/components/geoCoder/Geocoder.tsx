@@ -16,7 +16,10 @@ export default function LeafletControlGeocoder() {
       map.fitBounds(e.geocode.bbox);
     }).addTo(map)
 
-      
+    return () => {
+      geocoderControl.remove();
+    }; 
+     
   }, [map]);
 
   return null;
