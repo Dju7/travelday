@@ -17,7 +17,8 @@ section {
   width: 85%;
   height: 100%;
   padding: 4px;
-  border: solid 1px;
+  background-color: rgb(219 234 254);
+  border: solid 2px rgb(59 130 246);
   border-radius: 15px;;
 }
 

@@ -12,8 +12,8 @@ interface LocationMarkerProps {
 
 function LocationMarker({ onLatLngChange, geoloc }: LocationMarkerProps) {
 
-    const [markerPlace, setMarkerPlace] = useState<LatLng | null>(null)
-    const markerRef = useRef(null);
+  const [markerPlace, setMarkerPlace] = useState<LatLng | null>(null)
+  const markerRef = useRef(null);
   const customIcon = new Icon({
     iconUrl:'/icon.png',
     iconSize: [30, 30]
@@ -60,20 +60,14 @@ const MyMap: React.FC<MapProps> = ({geoloc}) => {
 
   return (
     <>
-    <MapContainer center={[48.891897, 2.347856]} zoom={zoom} style={{ height: '720px' }}>
+    <MapContainer center={[48.891897, 2.347856]} zoom={zoom} style={{ height: '750px' }}>
       <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
     <LeafletControlGeocoder />
-     <LocationMarker onLatLngChange={handleLatLngChange} geoloc={geoloc} />
-      
+     <LocationMarker onLatLngChange={handleLatLngChange} geoloc={geoloc} /> 
     </MapContainer>
-    <div className='mt-4'>
-    {latlngValue && 
-    <p className='text-2xl'>{latlngValue}</p>}
-
-    </div>
     </>
   );
 };

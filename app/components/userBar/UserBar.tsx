@@ -4,13 +4,11 @@ import AvatarUser from '../avatar/Avatar'
 
 function UserBar() {
   return (
-    <aside className='h-full w-[15%] border border-black rounded-2xl flex flex-col justify-around items-center'>
-        
+    <aside className='h-full w-[15%] border-2 border-blue-500 bg-blue-100 rounded-2xl flex flex-col justify-around items-center'> 
         <AvatarUser />
         <div className='w-[70%] h-[60%] flex justify-center items-center '>
         <Nav />
-        </div>
-      
+        </div> 
     </aside>
   )
 }
