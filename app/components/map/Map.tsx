@@ -1,62 +1,51 @@
-import React, { useState, useRef, SetStateAction } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMapEvents } from 'react-leaflet';
+'use client'
+import React, { useState, SetStateAction,  } from 'react';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon, LatLng } from 'leaflet';
 import LeafletControlGeocoder from '../geoCoder/Geocoder';
+import LocationMarker from '../locationMarker/LocationMarker';
+import ButtonMarker from '../buttonMarker/ButtonMarker';
 import 'leaflet/dist/leaflet.css'
 
-interface LocationMarkerProps {
-  onLatLngChange: (latlngValue: string) => void;
-  geoloc: (place: LatLng | null) => void;
+ interface Marker {
+  position: LatLng;
+  city: string;
+  description: string;
 }
 
+  interface MapProps {
+    geoloc: (place: SetStateAction<LatLng | null>) => void;
+    markers: Marker[];
+  }
 
-function LocationMarker({ onLatLngChange, geoloc }: LocationMarkerProps) {
+  // Afficher la carte 
 
-  const [markerPlace, setMarkerPlace] = useState<LatLng | null>(null)
-  const markerRef = useRef(null);
+const MyMap: React.FC<MapProps> = ({markers, geoloc}) => {
+  const [zoom] = useState(3);
+  const [newpin, setNewPin] = useState<[number, number] | null>(null);
+  const [latlngValue, setLatlngValue] = useState<string | null>(null);
   const customIcon = new Icon({
     iconUrl:'/icon.png',
     iconSize: [30, 30]
   })
-  const map = useMapEvents({
-    click(e) {
-      const { latlng } = e;
-      setMarkerPlace(latlng);
-      const latlngValue = `Latitude: ${latlng.lat.toFixed(6)}, Longitude: ${latlng.lng.toFixed(6)}`;
-     
-      onLatLngChange(latlngValue);
-      geoloc(latlng);
-
-      map.flyTo(latlng, map.getZoom());
-    },
-  });
-  
-    return markerPlace === null ? null : (
-        <Marker
-        position={markerPlace}
-        ref={markerRef}
-        draggable={true}
-        icon={customIcon}
-      >
-       <Popup minWidth={90}>
-          <span>
-            hello
-          </span>
-        </Popup>
-      </Marker>
-    )
-  }
-  interface MapProps {
-    geoloc: (place: SetStateAction<LatLng | null>) => void;
-  }
-
-const MyMap: React.FC<MapProps> = ({geoloc}) => {
-  const [zoom] = useState(3);
-  const [latlngValue, setLatlngValue] = useState<string | null>(null);
 
   const handleLatLngChange = (newLatLngValue: string) => {
     setLatlngValue(newLatLngValue);
   };
+
+   //ajout d'un nouveau marker
+  const handleMarkerAdd = () => {
+
+    const newLat = 48.5 + Math.random() * 2; // Latitude entre 48.5 et 50.5
+    const newLng = 1.5 + Math.random() * 2;  // Longitude entre 1.5 et 3.5
+    const newPin: [number, number] = [newLat, newLng];
+    setNewPin(newPin);
+  };
+
+  const deletePin = (e: { stopPropagation: () => void; }) => {
+    e.stopPropagation()
+    setNewPin(null)
+  }
 
   return (
     <>
@@ -65,7 +54,27 @@ const MyMap: React.FC<MapProps> = ({geoloc}) => {
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
     />
+    <ButtonMarker onMarkerAdd={handleMarkerAdd} />
     <LeafletControlGeocoder />
+    {newpin && (
+          <Marker position={newpin} icon={customIcon} draggable={true}>
+            <Popup minWidth={90}>
+              <span>hello</span>
+              <button className='cursor pointer' onClick={deletePin}>supp</button>
+            </Popup>
+          </Marker>
+        )}
+
+        {markers.map((marker, index) => (
+          <Marker key={index} position={marker.position} icon={customIcon} draggable={true}>
+            <Popup minWidth={90}>
+              <div>
+                <h2>{marker.city}</h2>
+                <p>{marker.description}</p>
+              </div>
+            </Popup>
+          </Marker>
+        ))}
      <LocationMarker onLatLngChange={handleLatLngChange} geoloc={geoloc} /> 
     </MapContainer>
     </>

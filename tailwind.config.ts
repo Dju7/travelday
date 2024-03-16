@@ -16,6 +16,9 @@ const config: Config = {
         'banniere': "url('/banniere.jpg')",
         
       },
+      zIndex: {
+        '1000': '1000',
+      }
     },
     darkMode: "class",
     plugins: [nextui()]
