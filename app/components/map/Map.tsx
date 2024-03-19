@@ -7,6 +7,7 @@ import LocationMarker from '../locationMarker/LocationMarker';
 import ButtonMarker from '../buttonMarker/ButtonMarker';
 import 'leaflet/dist/leaflet.css'
 
+
  interface Marker {
   position: LatLng;
   city: string;
@@ -50,10 +51,12 @@ const MyMap: React.FC<MapProps> = ({markers, geoloc}) => {
   return (
     <>
     <MapContainer center={[48.891897, 2.347856]} zoom={zoom} style={{ height: '750px' }}>
-      <TileLayer
+    <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+      url="http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
     />
+    
+    
     <ButtonMarker onMarkerAdd={handleMarkerAdd} />
     <LeafletControlGeocoder />
     {newpin && (
