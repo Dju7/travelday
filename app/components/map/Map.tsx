@@ -2,6 +2,7 @@
 import React, { useState, SetStateAction,  } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Icon, LatLng } from 'leaflet';
+import { geoLocStore } from '@/store/geoloc';
 import LeafletControlGeocoder from '../geoCoder/Geocoder';
 import LocationMarker from '../locationMarker/LocationMarker';
 import ButtonMarker from '../buttonMarker/ButtonMarker';
@@ -21,14 +22,16 @@ import 'leaflet/dist/leaflet.css'
 
   // Afficher la carte 
 
-const MyMap: React.FC<MapProps> = ({markers, geoloc}) => {
-  const [zoom] = useState(3);
+const Map: React.FC<MapProps> = ({markers, geoloc}) => {
+  const localisation = geoLocStore((state:any) =>state.geoloc.latlng)
+  const [zoom] = useState(5);
   const [newpin, setNewPin] = useState<[number, number] | null>(null);
   const [latlngValue, setLatlngValue] = useState<string | null>(null);
   const customIcon = new Icon({
     iconUrl:'/icon.png',
     iconSize: [30, 30]
   })
+  console.log(localisation)
 
   const handleLatLngChange = (newLatLngValue: string) => {
     setLatlngValue(newLatLngValue);
@@ -50,7 +53,7 @@ const MyMap: React.FC<MapProps> = ({markers, geoloc}) => {
 
   return (
     <>
-    <MapContainer center={[48.891897, 2.347856]} zoom={zoom} style={{ height: '750px' }}>
+    <MapContainer center={localisation} zoom={zoom} style={{ height: '750px' }}>
     <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="http://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png"
@@ -84,4 +87,4 @@ const MyMap: React.FC<MapProps> = ({markers, geoloc}) => {
   );
 };
 
-export default MyMap;
+export default Map;
