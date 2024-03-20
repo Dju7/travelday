@@ -49,20 +49,20 @@ export default function page() {
         </div>
         <div className='w-[40%] h-[740px] flex flex-col'>
           <div className="w-full h-[50%] flex flex-col justify-center items-center border border-blue-700 rounded-xl">
-            <h3 className='text-3xl text-center'>Choix d'itinéraire</h3>
+            <h3 className='text-3xl text-center text-cyan-300'>Choix d'itinéraire</h3>
 
-            <form onSubmit={handleSubmit} className="h-[90%] w-[95%] flex flex-col justify-center items-center gap-2">
+            <form onSubmit={handleSubmit} className="h-[90%] w-[95%] flex flex-col justify-center items-center gap-2 text-cyan-300">
               <label>Coordonnées</label>
-              <div className="h-10 w-[90%] flex justify-center items-center border border-blue-700 bg-blue-200 rounded-xl">
+              <div className="h-10 w-[90%] flex justify-center items-center border border-blue-700 bg-black rounded-xl">
                 {newplace && (
                   <p className="text-lg ">{`Lat: ${newplace.lat.toFixed(6)} - Long: ${newplace.lng.toFixed(6)}`}</p>
                 )}
               </div>
               <label>Lieu</label>
-              <input onChange={(e) => setCity(e.target.value)} value={city} />
+              <input onChange={(e) => setCity(e.target.value)} value={city} className='bg-black' />
               <label>Description</label>
-              <input onChange={(e) => setDescr(e.target.value)} value={descr} />
-              <button type="submit" className="bg-gray-200 p-2 mt-4 border border-black">Ajouter marker</button>
+              <input onChange={(e) => setDescr(e.target.value)} value={descr} className='bg-black' />
+              <button type="submit" className="bg-gray-200 p-2 mt-4 border border-black text-black">Ajouter marker</button>
             </form>
           </div>
           <div className="w-full h-[50%] flex flex-col gap-4">

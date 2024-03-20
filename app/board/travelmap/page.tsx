@@ -7,7 +7,7 @@ export default function page() {
   });
   return (
     <section>
-      <h3 className='text-3xl text-center mb-4'>Carte des voyages</h3>
+      <h3 className='text-3xl text-center text-cyan-300 mb-4'>Carte des voyages</h3>
       <div className='w-[97%] ml-5'>
       <MapWithNoSSR />
       </div>

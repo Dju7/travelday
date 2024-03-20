@@ -11,14 +11,15 @@ main {
   margin-top:50px;
   height: 94vh;
   width: full;
+  background-color: rgb(184, 179, 179)
 }
 
 section {
   width: 85%;
   height: 100%;
   padding: 4px;
-  background-color: rgb(219 234 254);
-  border: solid 2px rgb(59 130 246);
+  background-color: rgb(42, 42, 49);
+  border: solid 4px rgb(127, 236, 250);
   border-radius: 15px;;
 }
 

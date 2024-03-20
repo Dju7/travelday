@@ -3,7 +3,7 @@ import {Navbar, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react
 export default function Nav() {
     return (
       <Navbar>        
-        <NavbarContent className=" text-xl flex flex-col gap-10 text-blue-800 h-[450px] w-full ">
+        <NavbarContent className=" text-xl flex flex-col gap-10 text-white h-[450px] w-full ">
         <NavbarItem>
             <Link color="foreground" href="/">
               Accueil
