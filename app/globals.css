@@ -11,16 +11,15 @@ main {
   margin-top:50px;
   height: 94vh;
   width: full;
-  background-color: rgb(184, 179, 179)
+
 }
 
 section {
   width: 85%;
   height: 100%;
   padding: 4px;
-  background-color: rgb(42, 42, 49);
-  border: solid 4px rgb(127, 236, 250);
-  border-radius: 15px;;
+  background-color: #2d3748;
+  border-radius: 15px;
 }
 
 .mask{

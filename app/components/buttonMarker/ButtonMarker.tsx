@@ -3,7 +3,7 @@ import { useMap } from 'react-leaflet';
 import L from 'leaflet';
 
 interface ButtonMarkerProps {
-    onMarkerAdd: () => void; // Définissez le type de `onMarkerAdd` comme une fonction ne prenant aucun argument et ne renvoyant rien
+    onMarkerAdd: () => void;
   }
 
 export default function ButtonMarker({ onMarkerAdd }:ButtonMarkerProps) {
@@ -18,7 +18,7 @@ export default function ButtonMarker({ onMarkerAdd }:ButtonMarkerProps) {
   useEffect(() => {
     const buttonMarker = L.Control.extend({
       options: {
-        position: 'topleft' // Positionnez le bouton en haut à gauche
+        position: 'topleft' 
       },
     
       onAdd: function() {
@@ -26,7 +26,7 @@ export default function ButtonMarker({ onMarkerAdd }:ButtonMarkerProps) {
         container.classList.add('rounded-lg', 'border-2', 'border-gray-300');
         const button = L.DomUtil.create('button', 'text-lg', container);
         
-        button.innerHTML = '++'; // Texte du bouton
+        button.innerHTML = '++'; 
         
         // Gestionnaire d'événements du clic sur le bouton
         button.addEventListener('click', function(event) {

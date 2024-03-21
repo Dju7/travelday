@@ -29,7 +29,7 @@ const Map: React.FC<MapProps> = ({markers, geoloc}) => {
   const [latlngValue, setLatlngValue] = useState<string | null>(null);
   const customIcon = new Icon({
     iconUrl:'/icon.png',
-    iconSize: [30, 30]
+    iconSize: [44, 44]
   })
   console.log(localisation)
 
@@ -66,7 +66,7 @@ const Map: React.FC<MapProps> = ({markers, geoloc}) => {
           <Marker position={newpin} icon={customIcon} draggable={true}>
             <Popup minWidth={90}>
               <span>hello</span>
-              <button className='cursor pointer' onClick={deletePin}>supp</button>
+              <button className='cursor pointer ml-2' onClick={deletePin}>supp</button>
             </Popup>
           </Marker>
         )}

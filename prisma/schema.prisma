@@ -23,6 +23,7 @@ model User {
 model Tour {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   title     String
+  date      DateTime
   itinerary Json[]
   author    User      @relation(fields: [authorId], references: [id])
   authorId  String    @db.ObjectId

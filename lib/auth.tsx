@@ -4,16 +4,14 @@ import { db } from "./db";
 import { compare } from "bcrypt";
 
 export const authOptions: NextAuthOptions = {
-    pages: {
-     signIn : '/'
-    },
+    
   providers: [
     CredentialsProvider({
      
       name: "Credentials",
       credentials: {
         email: { label: "email", type: "email"},
-        password: { label: "Password", type: "password" }
+        password: { label: "password", type: "password" }
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
