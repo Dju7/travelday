@@ -16,6 +16,7 @@ datasource db {
 model User {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   email       String   @unique
+  username    String   @unique
   password    String   
   tour        Tour[]
 }
@@ -23,7 +24,7 @@ model User {
 model Tour {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   title     String
-  date      DateTime
+  date      String
   itinerary Json[]
   author    User      @relation(fields: [authorId], references: [id])
   authorId  String    @db.ObjectId

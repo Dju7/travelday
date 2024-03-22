@@ -10,16 +10,16 @@ export const authOptions: NextAuthOptions = {
      
       name: "Credentials",
       credentials: {
-        email: { label: "email", type: "email"},
+        username: { label: "username", type: "username"},
         password: { label: "password", type: "password" }
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
+        if (!credentials?.username || !credentials?.password) {
           throw new Error('Please enter an email and password')
         }
       
         const existingUser = await db.user.findFirst ({
-          where: {email: credentials?.email},
+          where: {username: credentials?.username},
         });
         if (!existingUser) {
           throw new Error('No user found')
@@ -34,10 +34,35 @@ export const authOptions: NextAuthOptions = {
         return {
           id:  `${existingUser.id}`,
           email: existingUser.email,
+          username: existingUser.username,
         }
       }
     })
   ],
+
+  session: {
+    strategy: "jwt",
+  },
+  callbacks: {
+    async jwt ({token, user}) {
+      if (user) {
+        return {
+          ...token,
+          username: user.username,
+        };
+      }
+      return token
+    },
+    async session ({ session, token}) {
+      return {
+        ...session,
+        user: {
+          ...session.user,
+          username: token.username,
+        }
+      };
+    },
+  }
 
 }
 

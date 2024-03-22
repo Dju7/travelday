@@ -2,15 +2,17 @@ import { create } from 'zustand'
 
 export const geoLocStore = create((set)=> ({
     geoloc : {
-        country: 'default',
+        country: 'Aucune destination choisie',
         latlng: [48.891897, 2.347856]
 
     },
-    updateGeoloc: (newGeoloc:any) => set({
+    updateGeoloc: (newGeoloc:any) => {
+    set({
         geoloc: {
-            country: newGeoloc.name,
+            country: newGeoloc.country,
             latlng: newGeoloc.latlng.split(',').map(parseFloat)
         }
-    }
+    } 
     )
+}
 }))

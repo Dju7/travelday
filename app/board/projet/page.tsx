@@ -50,7 +50,7 @@ export default function page() {
     }
     
   }
-  console.log(countryData?.latlng)
+  
 
 
   return (

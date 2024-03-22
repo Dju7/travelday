@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 const countries = [
 
          {
-            "name": "mexique",
+            "name": "Mexique",
             "capital": "mexico",
             "langue": "espagnol",
             "superficie":"1,973 million km²",
