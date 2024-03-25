@@ -4,7 +4,9 @@ import { db } from "./db";
 import { compare } from "bcrypt";
 
 export const authOptions: NextAuthOptions = {
-    
+  pages: {
+    signIn: '/',
+  }, 
   providers: [
     CredentialsProvider({
      

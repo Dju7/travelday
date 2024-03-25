@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Providers } from "./providers/providers";
+import { SessionProviders } from "./providers/sessionProviders";
 import "./globals.css";
 import Header from "./components/header/Header";
 
@@ -17,12 +18,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body >
-
+      
         <Providers>
+          <SessionProviders>
           <Header />
+          </SessionProviders>
           {children}
-        </Providers>
-        
+        </Providers> 
+               
         </body>
     </html>
   );

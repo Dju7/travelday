@@ -54,7 +54,7 @@ export default function page() {
 
 
   return (
-    <section>
+    <section className='bg-blue-100 bg-opacity-70 border-2 border-white'>
       <div className='h-full w-full p-4 flex flex-col justify-center items-center gap-4'>
       <div className={`h-[40%] w-full ${countryData ? '' : 'bg-destination'} bg-cover bg-center rounded-xl flex flex-col gap-4 justify-center items-center`} style={countryData ? { backgroundImage: `url(${countryData.urlImage})` } : {}}>
             <h3 className='text-6xl text-white font-bold rounded-xl '>Entrez un Pays</h3> 

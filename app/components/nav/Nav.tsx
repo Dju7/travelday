@@ -1,35 +1,28 @@
-import {Navbar, NavbarContent, NavbarItem, Link, Button} from "@nextui-org/react";
+import Link from 'next/link'
+import LogOut from '../logOut/LogOut';
 
 export default function Nav() {
     return (
-      <Navbar>        
-        <NavbarContent className=" text-xl flex flex-col gap-10 text-white h-[450px] w-full ">
-        <NavbarItem>
-            <Link color="foreground" href="/">
+      <nav className="flex flex-col items-center gap-10 h-full w-full text-xl text-blue-700">        
+        
+            <Link className='hover:text-red-500'  href="/">
               Accueil
             </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="/board">
+          
+            <Link className='hover:text-red-500'  href="/board">
               Tableau de bord
             </Link>
-          </NavbarItem>
-          <NavbarItem isActive>
-            <Link href="/board/projet" aria-current="page">
+        
+            <Link className='hover:text-red-500' href="/board/projet">
              Nouveau projet
             </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="/board/travelmap">
+        
+            <Link className='hover:text-red-500'  href="/board/travelmap">
               Carte des voyages
             </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              Deconnexion
-            </Link>
-          </NavbarItem>
-        </NavbarContent>
-      </Navbar>
+          
+            <LogOut />
+        
+      </nav>
     );
   }

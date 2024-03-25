@@ -11,6 +11,7 @@ main {
   margin-top:50px;
   height: 94vh;
   width: full;
+  background-color: #3B82F6
 
 }
 
@@ -18,7 +19,7 @@ section {
   width: 85%;
   height: 100%;
   padding: 4px;
-  background-color: #2d3748;
+  
   border-radius: 15px;
 }
 

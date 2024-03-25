@@ -14,7 +14,7 @@ const MyMap = () => {
 
   return (
     <>
-    <MapContainer center={[48.891897, 2.347856]} zoom={zoom} style={{ height: '700px' }}>
+    <MapContainer center={[48.891897, 2.347856]} zoom={zoom} style={{ height: '750px' }}>
       <TileLayer
       attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

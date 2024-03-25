@@ -46,16 +46,16 @@ export default function page() {
   
 
   return (
-    <section>
+    <section className='bg-blue-100 bg-opacity-70 border-2 border-white'>
       <div className='p-2 flex justify-center items-center gap-6'>
         <div className='w-[60%] mt-5 ml-4 border-2 border-blue-700'>
           <DynamicMap markers={Markers}  geoloc={(newplace) => setNewplace(newplace)} />
         </div>
-        <div className='w-[40%] h-[740px] flex flex-col gap-4'>
-          <div className="w-full h-[70%] flex flex-col justify-center items-center border border-cyan-300 rounded-xl">
-            <h3 className='text-3xl text-center text-cyan-300'>Choix d'itinéraire</h3>
+        <div className='w-[40%] h-[740px] flex flex-col gap-6'>
+          <div className="w-full h-[70%] bg-blue-200 flex flex-col justify-center items-center border border-blue-500 rounded-xl">
+            <h3 className='text-3xl text-center text-blue-500'>Choix d'itinéraire</h3>
 
-            <form onSubmit={handleSubmit} className="h-[90%] w-[95%] flex flex-col justify-center items-center gap-2 text-cyan-300">
+            <form onSubmit={handleSubmit} className="h-[90%] w-[95%] flex flex-col justify-center items-center gap-2 text-blue-500">
               <div className="h-10 w-[90%] flex justify-center items-center border border-blue-700 bg-black rounded-xl mb-4">
                 {newplace && (
                   <p className="text-lg ">{`Latitude: ${newplace.lat.toFixed(6)} - Longitude: ${newplace.lng.toFixed(6)}`}</p>
@@ -77,11 +77,11 @@ export default function page() {
               <button type="submit" className="bg-gray-200 p-2 mt-4 border border-black text-black">Ajouter marker</button>
             </form>
           </div>
-          <div className="w-full h-[35%] flex flex-col justify-center items-center border border-cyan-300 rounded-xl gap-4">
-          <h3 className='text-3xl text-center text-cyan-300'>{newLocalisation.country}</h3>
+          <div className="w-full h-[35%] bg-blue-200 flex flex-col justify-center items-center border border-blue-500 rounded-xl gap-4">
+          <h3 className='text-3xl text-center text-blue-500'>{newLocalisation.country}</h3>
           <div className=' w-[90%] h-14 flex justify-center items-center gap-4'>
-          <p className='text-lg text-cyan-300'>Année:</p>
-          <input className='w-[80%] h-8 bg-black p-2 text-center text-lg text-cyan-300' placeholder='ex: octobre - 2023' />
+          <p className='text-lg text-blue-3500'>Année:</p>
+          <input className='w-[80%] h-8 bg-black p-2 text-center text-lg text-blue-500' placeholder='ex: octobre - 2023' />
           </div>
           <button className="bg-gray-200 p-2 mt-4 border border-black text-black">Enregistrer l'itinéraire</button>
           </div>

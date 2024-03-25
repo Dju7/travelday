@@ -6,9 +6,8 @@ export default function page() {
     ssr: false
   });
   return (
-    <section>
-      <h3 className='text-3xl text-center text-cyan-300 mb-4'>Carte des voyages</h3>
-      <div className='w-[97%] ml-5'>
+    <section className='bg-blue-100 bg-opacity-70 border-2 border-white'>
+      <div className='w-[99%] h-[93%]  mt-5 border border-blue-500 m-auto'>
       <MapWithNoSSR />
       </div>
     </section>
