@@ -11,8 +11,10 @@ import 'leaflet/dist/leaflet.css'
 
  interface Marker {
   position: LatLng;
+  step: string,
   city: string;
   description: string;
+  booking: string;
 }
 
   interface MapProps {
@@ -75,8 +77,11 @@ const Map: React.FC<MapProps> = ({markers, geoloc}) => {
           <Marker key={index} position={marker.position} icon={customIcon} draggable={true}>
             <Popup minWidth={90}>
               <div>
+                <p>Etape: {marker.step}</p>
                 <h2>{marker.city}</h2>
                 <p>{marker.description}</p>
+                <p>{marker.booking}</p>
+                
               </div>
             </Popup>
           </Marker>

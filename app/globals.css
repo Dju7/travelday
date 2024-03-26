@@ -28,3 +28,7 @@ section {
   mask-repeat: no-repeat;
   mask-size: cover
 }
+
+.active{
+  color: rgb(252, 252, 41)
+}

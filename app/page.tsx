@@ -41,16 +41,16 @@ const handleSubmit = async (e: {currentTarget: any; preventDefault: any; }) => {
   return (
     <>
     <main className=" bg-accueil bg-cover bg-center" >
-      <div className=" h-[85%] w-full flex flex-col justify-center items-center ">
+      <div className=" h-[75%] w-full flex flex-col justify-center items-center ">
       <h1 className=" text-9xl font-bold text-sky-400 opacity-90"><span className="text-[11rem] text-violet-600">T</span>RAVEL<span className="text-[11rem] text-yellow-500">D</span>IARY</h1>
       <h2 className="text-4xl font-bold text-gray-800 ml-[450px]">Plannifiez vos voyages</h2>
       </div>
-      <div className="h-[15%] w-full flex justify-center items-center">
-        <form onSubmit={handleSubmit} className="w-[70%] h-[40%] flex justify-center gap-8 ">
-          <input type="email" name='email' className="w-[30%] h-full p-2 rounded-xl border-2 border-sky-400 outine-none " placeholder="entrez votre adresse e-mail"/>
-          <input type='text' name='username' className="w-[30%] h-full p-2 rounded-xl border-2 border-purple-400 outine-none " placeholder="entrez votre username"/>
-          <input type='password' name='password' className="w-[30%] h-full p-2 rounded-xl border-2 border-red-500 outline-none" placeholder="entrez un mot de passe"/>
-          <button type='submit' className="p-2 w-[20%] bg-blue-500 text-white text-xl rounded-xl ">INSCRIPTION</button>
+      <div className="h-[25%] w-full flex justify-center items-center">
+        <form onSubmit={handleSubmit} className="w-[70%] h-full flex flex-col md:flex-row justify-center items-center gap-4 lg:gap-8 ">
+          <input type="email" name='email' className="w-[70%] md:w-[30%] h-[25%] p-2 rounded-xl border-2 border-sky-400 outine-none " placeholder="entrez votre adresse e-mail"/>
+          <input type='text' name='username' className="w-[70%] md:w-[30%] h-[25%] p-2 rounded-xl border-2 border-purple-400 outine-none " placeholder="entrez votre username"/>
+          <input type='password' name='password' className="w-[70%] md:w-[30%] h-[25%] p-2 rounded-xl border-2 border-red-500 outline-none" placeholder="entrez un mot de passe"/>
+          <button type='submit' className="p-2 w-[60%] md:w-[20%] h-[25%] bg-blue-500 text-white text-xl rounded-xl ">INSCRIPTION</button>
         </form>
           <Link href='/board'>Board</Link>
       </div>

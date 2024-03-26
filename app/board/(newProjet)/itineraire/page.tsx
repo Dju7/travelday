@@ -3,20 +3,25 @@ import dynamic from 'next/dynamic';
 import { LatLng } from 'leaflet';
 import { useState } from 'react';
 import { geoLocStore } from '@/store/geoloc';
+import Link from 'next/link';
 
 const DynamicMap = dynamic(() => import('@/app/components/map/Map'), { ssr: false });
 
 interface Marker {
   position: LatLng;
+  step: string;
   city: string;
   description: string;
+  booking: string
 }
 
 export default function page() {
   const [Markers, setMarkers] = useState<Marker[]>([])
   const [newplace, setNewplace] = useState<LatLng | null>(null);
+  const [step, setStep] = useState('')
   const [city, setCity] = useState('')
   const [descr, setDescr] = useState('')
+  const [booking, setBooking] = useState('')
 
   const newLocalisation = geoLocStore((state:any) =>state.geoloc)
   console.log(newLocalisation)
@@ -27,9 +32,11 @@ export default function page() {
     if (newplace && city && descr) {
       // Create a new marker object with the entered data
       const newMarker = {
+        step: step,
         position: newplace,
         city: city,
-        description: descr
+        description: descr,
+        booking: booking, 
       };
       
       // Update the Markers state with the new marker
@@ -38,6 +45,8 @@ export default function page() {
       // Clear the input fields
       setCity('');
       setDescr('');
+      setStep('');
+      setBooking('')
     } else {
       // Handle case when any of the required fields are missing
       console.log('Please fill in all the fields');
@@ -63,14 +72,14 @@ export default function page() {
               </div>
               <div className='flex h-12 justify-center items-center gap-6'>
                 <label>N°etape:</label>
-                <input className='w-8 h-8 bg-black' />
+                <input onChange={(e) => setStep(e.target.value)} value={step} className='w-8 h-8 bg-black p-2' />
                 <label>Lieu:</label>
-                <input onChange={(e) => setCity(e.target.value)} value={city} className='bg-black w-72 h-8' />
+                <input onChange={(e) => setCity(e.target.value)} value={city} className='bg-black w-72 h-8 p-2' />
               </div>
               <label>Description</label>
-              <input onChange={(e) => setDescr(e.target.value)} value={descr} className='bg-black w-[80%] h-8' />
+              <input onChange={(e) => setDescr(e.target.value)} value={descr} className='bg-black w-[80%] h-8 p-2' />
               <label>Reservation</label>
-              <input onChange={(e) => setCity(e.target.value)} value={city} className='bg-black w-[80%] h-8' />
+              <input onChange={(e) => setBooking(e.target.value)} value={booking} className='bg-black w-[80%] h-8 p-2' />
               <div>
 
               </div>
@@ -84,7 +93,8 @@ export default function page() {
           <input className='w-[80%] h-8 bg-black p-2 text-center text-lg text-blue-500' placeholder='ex: octobre - 2023' />
           </div>
           <button className="bg-gray-200 p-2 mt-4 border border-black text-black">Enregistrer l'itinéraire</button>
-          </div>
+          <Link href="/board/documents"> next</Link>
+          </div>  
         </div>
 
       </div>
