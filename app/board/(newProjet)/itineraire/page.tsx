@@ -3,7 +3,9 @@ import dynamic from 'next/dynamic';
 import { LatLng } from 'leaflet';
 import { useState } from 'react';
 import { geoLocStore } from '@/store/geoloc';
+import { getSession } from 'next-auth/react';
 import Link from 'next/link';
+import { Session } from 'next-auth';
 
 const DynamicMap = dynamic(() => import('@/app/components/map/Map'), { ssr: false });
 
@@ -15,13 +17,19 @@ interface Marker {
   booking: string
 }
 
-export default function page() {
+interface Props {
+  session: Session | null;
+}
+
+export default function page({session}: Props) {
   const [Markers, setMarkers] = useState<Marker[]>([])
   const [newplace, setNewplace] = useState<LatLng | null>(null);
   const [step, setStep] = useState('')
   const [city, setCity] = useState('')
   const [descr, setDescr] = useState('')
   const [booking, setBooking] = useState('')
+  const [date, setDate] = useState('')
+
 
   const newLocalisation = geoLocStore((state:any) =>state.geoloc)
   console.log(newLocalisation)
@@ -49,14 +57,33 @@ export default function page() {
       setBooking('')
     } else {
       // Handle case when any of the required fields are missing
-      console.log('Please fill in all the fields');
+      alert('SVP remplissez tout les champs');
     }
   }
-  
 
+  const handleLastDelete = () => {
+    const updatedMarkers = [...Markers];
+    if(Markers.length <= 0) {
+      alert('aucun marker')
+    }
+    updatedMarkers.pop();
+    setMarkers(updatedMarkers);
+  }
+
+  const handleTour = () => {
+    const tourData = {
+      title: newLocalisation.country,
+      date: date,
+      itinerary: Markers,
+      author: session?.user.username
+    }
+    console.log(tourData)
+  }
+  
+ 
   return (
     <section className='bg-blue-100 bg-opacity-70 border-2 border-white'>
-      <div className='p-2 flex justify-center items-center gap-6'>
+      <div className='p-2 flex justify-center items-center gap-4'>
         <div className='w-[60%] mt-5 ml-4 border-2 border-blue-700'>
           <DynamicMap markers={Markers}  geoloc={(newplace) => setNewplace(newplace)} />
         </div>
@@ -80,19 +107,19 @@ export default function page() {
               <input onChange={(e) => setDescr(e.target.value)} value={descr} className='bg-black w-[80%] h-8 p-2' />
               <label>Reservation</label>
               <input onChange={(e) => setBooking(e.target.value)} value={booking} className='bg-black w-[80%] h-8 p-2' />
-              <div>
 
-              </div>
-              <button type="submit" className="bg-gray-200 p-2 mt-4 border border-black text-black">Ajouter marker</button>
+              
+              <button type="submit" className="bg-gray-200 p-2 mt-2 border border-black text-black">Ajouter marker</button>
             </form>
+            <button className="bg-gray-200 p-2 border border-black text-black mb-2" onClick={handleLastDelete}>supprimer dernier</button>
           </div>
           <div className="w-full h-[35%] bg-blue-200 flex flex-col justify-center items-center border border-blue-500 rounded-xl gap-4">
           <h3 className='text-3xl text-center text-blue-500'>{newLocalisation.country}</h3>
           <div className=' w-[90%] h-14 flex justify-center items-center gap-4'>
           <p className='text-lg text-blue-3500'>Année:</p>
-          <input className='w-[80%] h-8 bg-black p-2 text-center text-lg text-blue-500' placeholder='ex: octobre - 2023' />
+          <input className='w-[80%] h-8 bg-black p-2 text-center text-lg text-blue-500' value={date} onChange={(e) => setDate(e.target.value)} placeholder='ex: octobre - 2023' />
           </div>
-          <button className="bg-gray-200 p-2 mt-4 border border-black text-black">Enregistrer l'itinéraire</button>
+          <button className="bg-gray-200 p-2 mt-4 border border-black text-black" onClick={handleTour}>Enregistrer l'itinéraire</button>
           <Link href="/board/documents"> next</Link>
           </div>  
         </div>

@@ -1,5 +1,6 @@
 import UserBar from "../components/userBar/UserBar";
 
+
 export default function boardLayout({
     children,
   }: Readonly<{

@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import L from 'leaflet';
 
 interface ButtonMarkerProps {
-    onMarkerAdd: () => void;
-  }
+  onMarkerAdd: () => void;
 
-export default function ButtonMarker({ onMarkerAdd }:ButtonMarkerProps) {
+}
+
+export default function ButtonMarker({ onMarkerAdd}:ButtonMarkerProps) {
   const map = useMap();
 
   const handleButtonClick = () => {
@@ -14,6 +15,7 @@ export default function ButtonMarker({ onMarkerAdd }:ButtonMarkerProps) {
       onMarkerAdd();
     }
   };
+
 
   useEffect(() => {
     const buttonMarker = L.Control.extend({
@@ -28,7 +30,7 @@ export default function ButtonMarker({ onMarkerAdd }:ButtonMarkerProps) {
         
         button.innerHTML = '++'; 
         
-        // Gestionnaire d'événements du clic sur le bouton
+        
         button.addEventListener('click', function(event) {
             event.stopPropagation();
             handleButtonClick()

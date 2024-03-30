@@ -58,9 +58,10 @@ interface LocationMarkerProps {
           icon={customIcon}
         >
          <Popup minWidth={90}>
-            <span>
-              hello
+            <span className='text-lg'>
+              Nouveau marker
             </span>
+            <p>Saississez des données dans les champs de droite, puis valider en cliquant sur "ajouter Marker"</p>
           </Popup>
         </Marker>
       )
