@@ -25,6 +25,7 @@ model Tour {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   title     String
   date      String
+  duration   String
   itinerary Json[]
   author    User      @relation(fields: [authorId], references: [id])
   authorId  String    @db.ObjectId 
@@ -33,12 +34,10 @@ model Tour {
 
 model Utils {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
-  tour       Tour    @relation(fields: [tourID], references: [id])
+  tour       Tour     @relation(fields: [tourID], references: [id])
   tourID     String    @db.ObjectId 
-  country    String
-  date       String
   transport  String[]
-  booking    String[]
+  booking    String[]  
   location   String[]
-
 }
+
