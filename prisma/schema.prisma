@@ -38,6 +38,6 @@ model Utils {
   tourID     String    @db.ObjectId 
   transport  String[]
   booking    String[]  
-  location   String[]
+  location   String?
 }
 
