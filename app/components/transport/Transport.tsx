@@ -67,7 +67,7 @@ function Transport() {
 
         <div className='h-[50%] w-full flex justify-center items-center'>
           <div className='h-full w-[30%] flex flex-col justify-center items-center gap-4'>
-            <input value={departure} onChange={(e)=>setDeparture(e.target.value)} placeholder='(aero)gare départ' className=' border border-blue-900 text-yellow-400 p-1 bg-blue-400 rounded-lg placeholder-yellow-400 outline-none'/>
+            <input value={departure} onChange={(e)=>setDeparture(e.target.value)} placeholder='(aero)gare départ' className=' border border-blue-900 text-yellow-400 p-1 bg-blue-400 rounded-lg outline-none placeholder-gray-200'/>
             <input value={departureHours} onChange={(e)=>setDepartureHours(e.target.value)} type='time' className='bg-transparent w-[30%] outline-none'/>
           </div>
           <div className='w-[40%] h-full flex justify-center items-center'>
@@ -76,7 +76,7 @@ function Transport() {
             <div className='text-blue-500 text-5xl font-bold'><IoIosArrowForward/></div>
           </div>
           <div className='h-full w-[30%] flex flex-col justify-center items-center gap-4'>
-            <input value={arrival} onChange={(e)=>setArrival(e.target.value)} placeholder='(aero)gare arrivée' className='border border-blue-900 text-yellow-400 p-1 bg-blue-400 rounded-lg placeholder-yellow-400 outline-none'/>
+            <input value={arrival} onChange={(e)=>setArrival(e.target.value)} placeholder='(aero)gare arrivée' className='border border-blue-900 text-yellow-400 p-1 bg-blue-400 rounded-lg  outline-none placeholder-gray-200'/>
             <input value={arrivalHours} onChange={(e)=>setArrivalHours(e.target.value)} type='time' className='bg-transparent w-[30%] outile-none'/>
           </div>
         </div>
@@ -84,11 +84,11 @@ function Transport() {
         <div className='h-[20%] w-full flex justify-around items-center'>
           <div className='w-[30%]'>
           <label className=' mr-4'>N° de reservation:</label>
-            <input value={transportReservation} onChange={(e)=>setTransportReservation(e.target.value)} className=" w-[40%] border border-blue-900 text-yellow-400 p-1 bg-blue-400 rounded-lg placeholder-yellow-400 outline-none"/>
+            <input value={transportReservation} onChange={(e)=>setTransportReservation(e.target.value)} className=" w-[40%] border border-blue-900 text-yellow-400 p-1 bg-blue-400 rounded-lg  outline-none placeholder-gray-200"/>
             </div>
             <div className='w-[30%]'>
-          <label className='mr-4'>Prix:</label>
-            <input value={transportPrice} onChange={(e)=>setTransportPrice(e.target.value)} className=" w-[40%] border border-blue-900 text-yellow-400 p-1 bg-blue-400 rounded-lg placeholder-yellow-400 outline-none"/>
+          <label className='mr-4'>Prix(€):</label>
+            <input placeholder='50' value={transportPrice} onChange={(e)=>setTransportPrice(e.target.value)} className=" w-[40%] border border-blue-900 text-yellow-400 p-1 bg-blue-400 rounded-lg  outline-none placeholder-gray-200"/>
             </div>
             <button onClick={handleTransportInfos} className='border border-black bg-gray-200 p-2'>valider</button>
         </div>

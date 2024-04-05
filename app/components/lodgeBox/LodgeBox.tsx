@@ -43,11 +43,11 @@ const handleSubmit = () => {
         <p className='text-xl mb-2'>{children}</p>
       <form className='flex flex-col justify-center items-center'>
         <label className='text-lg'>Nbr de nuit(s):</label>
-        <input className='h-6 text-blue-500' value={nights} onChange={(e) => setNights(e.target.value)} />
+        <input className='h-6 text-blue-500' placeholder='3' value={nights} onChange={(e) => setNights(e.target.value)} />
         <label className='text-lg'>N° de reservation</label>
         <input className='h-6 text-blue-500' value={lodgeReservation} onChange={(e) => setLodgeReservation(e.target.value)} />
-        <label className='text-lg'>Prix:</label>
-        <input className='h-6 text-blue-500' value={lodgePrice} onChange={(e) => setLodgePrice(e.target.value)} />
+        <label className='text-lg'>Prix(€):</label>
+        <input className='h-6 text-blue-500' placeholder='50' value={lodgePrice} onChange={(e) => setLodgePrice(e.target.value)} />
         <button className='h-8 mt-4 border border-black ' type='button' onClick={handleSubmit}>Valider</button>
       </form>
     </div>
