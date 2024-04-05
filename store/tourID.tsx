@@ -9,7 +9,7 @@ interface TourIdStoreState {
 export const TourIdStore = create<TourIdStoreState>((set) => ({
   tourId: "",
   updateTourId: (tourId:string) => {
-  console.log("Nouvel ID de tournée:", tourId);
+  console.log("Nouvel ID de voyage:", tourId);
   set({ tourId: tourId })
   } // Fonction pour mettre à jour l'ID du tour
 }));

@@ -32,7 +32,7 @@ export default function page() {
   const router = useRouter()
   const newLocalisation = geoLocStore((state:any) =>state.geoloc)
   const tourIdState = TourIdStore(state => state);
-   const updateTourId = tourIdState.updateTourId
+  const updateTourId = tourIdState.updateTourId
   
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault(); // Prevent the default form submission

@@ -36,8 +36,8 @@ model Utils {
   id        String    @id @default(auto()) @map("_id") @db.ObjectId
   tour       Tour     @relation(fields: [tourID], references: [id])
   tourID     String    @db.ObjectId 
-  transport  String[]
-  booking    String[]  
-  location   String?
+  transport  Json[]
+  booking    Json[]  
+  location   Json[]  
 }
 
