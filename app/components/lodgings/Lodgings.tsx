@@ -23,14 +23,7 @@ function Lodgings({lodges}: LodgingsProps ){
     newUtils({ booking: [...booking, newBooking] })  
   };
 
-  const sliderSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1
-  };
-
+ 
   return (
     <article className='flex flex-col w-full justify-center items-center h-full bg-blue-200'>
         <div className='h-6 w-full text-yellow-400 bg-sky-500 text-center'>HEBERGEMENTS</div>

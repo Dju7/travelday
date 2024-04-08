@@ -15,6 +15,7 @@ interface Tour {
 
 function page() {
   const [tourData, setTourData] = useState<Tour[]>([]);
+  
 
   useEffect( ()=> {
     const fetchData = async () => {
@@ -33,11 +34,18 @@ function page() {
 
  console.log('donnée tourData', tourData)
 
-  return (
-    <section className=' p-6 grid grid-cols-4 bg-blue-100 bg-opacity-40 border-2 border-white'>
-        <CardTrip title={tourData.length > 0 ? tourData[0].title : 'is loading'} date={tourData.length > 0 ? tourData[0].date : 'is loading'} duration={tourData.length > 0 ? tourData[0].duration : 'is loading'} />
-    </section>
-  )
+ return (
+  <section className='p-6 grid grid-cols-4 bg-blue-100 bg-opacity-40 border-2 border-white gap-6'>
+    {tourData.map((tourItem) => (
+      <CardTrip
+        key={tourItem.id}
+        title={tourItem.title}
+        date={tourItem.date}
+        duration={tourItem.duration}
+      />
+    ))}
+  </section>
+);
 }
 
 export default page

@@ -17,14 +17,14 @@ interface LodgeBoxProps {
 function LodgeBox({children, updateBooking}: LodgeBoxProps) {
 
 const [nights, setNights] = useState('')
-const [lodgeReservation, setLodgeReservation] = useState('')
+const [lodgeReservation, setLodgeReservation] = useState('use client')
 const [lodgePrice, setLodgePrice] = useState('')
 
 
 
 
 const handleSubmit = () => {
-  if (nights && lodgeReservation && lodgePrice) {
+  if (nights  && lodgePrice) {
     const newBooking: Booking = {
       nights: nights,
       lodgeReservation: lodgeReservation,

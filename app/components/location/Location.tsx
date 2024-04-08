@@ -19,7 +19,14 @@ const newUtils = utilsStore((state:any) =>state.updateLocation)
 
 
 const handleRent = () => {
-  if (isRent && vehicule && modele && vehiculePrice) {
+  if (!isRent) {
+    const newLocation: Rent = {
+      isRent: isRent,
+    };
+
+    setLocation([newLocation]);
+    newUtils({ location: [newLocation] });
+  } else if (isRent && vehicule && modele && vehiculePrice) {
     const newLocation: Rent = {
       isRent: isRent,
       vehicule: vehicule,
@@ -27,13 +34,12 @@ const handleRent = () => {
       vehiculePrice: vehiculePrice,
     };
 
-    setLocation([ newLocation]);
-    newUtils({ location: [newLocation] })
+    setLocation([newLocation]);
+    newUtils({ location: [newLocation] });
   } else {
     alert('SVP remplissez tous les champs');
   }
 }
-
 
   return (
     <article className='flex flex-col w-[40%] h-full bg-blue-200'>

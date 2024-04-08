@@ -24,7 +24,7 @@ function Transport() {
   const [arrival, setArrival] = useState('')
   const [departureHours, setDepartureHours] = useState('')
   const [arrivalHours, setArrivalHours] = useState('')
-  const [transportReservation, setTransportReservation] = useState('')
+  const [transportReservation, setTransportReservation] = useState('use client')
   const [transportPrice, setTransportPrice] = useState('')
 
   const handleTransportSelection = (transportType: string) => {
@@ -34,7 +34,7 @@ function Transport() {
   };
 
   const handleTransportInfos = () => {
-    if (transportation && departure && departureHours && arrival && arrivalHours && transportReservation && transportPrice) {
+    if (transportation && departure && departureHours && arrival && transportReservation && transportPrice) {
       const newTransport: Transport = {
         transportation: transportation,
         departure: departure,

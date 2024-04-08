@@ -15,6 +15,7 @@ const config: Config = {
         "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'accueil': "url('/mainback.jpg')",
         'destination': "url('/destination.jpeg')",
+        'voyageur': "url('/voyageur.jpg')"
         
       },
       zIndex: {

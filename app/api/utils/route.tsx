@@ -6,7 +6,7 @@ export async function POST(req: Request) {
         const body = await req.json();
         const { tour, transport, booking, location } = body;
 
-        if (!tour || !transport || !booking || !location) {
+        if (!tour || !transport || !booking) {
             return new NextResponse('Missing Fields', { status: 400 });
         }
 

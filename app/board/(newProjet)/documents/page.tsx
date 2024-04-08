@@ -67,13 +67,6 @@ export default function page() {
   };
 
 
-  const TotalPrice: any = () => {
-    const flightPrice = Number(utils.transport.transport.transportPrice)
-    const RentPrice = Number(utils.location.location.vehiculePrice)
-    const bookingPrice = Number(utils.booking.booking.lodgePrice.map((price: any) => price + price))
-    const result = flightPrice + RentPrice + bookingPrice
-    return result
-  }
 
   return (
     <section className='flex flex-col justify-center items-center bg-blue-100 bg-opacity-40 border-2 border-white gap-3'>
@@ -88,7 +81,7 @@ export default function page() {
         <Lodgings lodges={booking}/>
       </div>
       <div className='h-[8%] w-[98%]  flex justify-between items-center'>
-        <p className='text-blue-700 font-bold text-2xl'>Budget minimal: {TotalPrice}</p>
+        <p className='text-blue-700 font-bold text-2xl'>Budget minimal: XXXX €</p>
         <button onClick={handleClick} className='h-[90%] w-[10%] bg-gray-200 text-black'>Créer voyage</button>
       </div>
     </section>
