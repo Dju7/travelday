@@ -16,7 +16,7 @@ export default function LeafletControlGeocoder() {
     
     geocoderControl.on('markgeocode', function (e) {
       const lat_lng = e.geocode.center;
-      new L.Marker(lat_lng, {icon: customIcon}).addTo(map).bindPopup(e.geocode.name).openPopup();
+      new L.Marker(lat_lng).addTo(map).bindPopup(e.geocode.name).openPopup();
       map.fitBounds(e.geocode.bbox);
     }).addTo(map)
 

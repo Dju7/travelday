@@ -11,7 +11,7 @@ import { useEffect, useState } from 'react'
 export default function page() {
   const router = useRouter()
   const {tourId} = TourIdStore()
-  const [booking, setBooking] = useState([])
+  const [booking, setBooking] = useState([]) 
   const utils = utilsStore((state:any) =>state.utils)
 
   useEffect(() => {
@@ -83,6 +83,7 @@ export default function page() {
       <div className='h-[8%] w-[98%]  flex justify-between items-center'>
         <p className='text-blue-700 font-bold text-2xl'>Budget minimal: XXXX €</p>
         <button onClick={handleClick} className='h-[90%] w-[10%] bg-gray-200 text-black'>Créer voyage</button>
+      
       </div>
     </section>
   )

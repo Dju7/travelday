@@ -4,6 +4,7 @@ import { utilsStore } from '@/store/utils';
 import { FaTrain, FaCar } from "react-icons/fa";
 import { IoMdBoat, IoIosArrowForward } from "react-icons/io";
 import { FaPlane } from "react-icons/fa6";
+import { PiCalendarCheckDuotone } from "react-icons/pi";
 
 interface Transport {
   transportation: string,
@@ -17,6 +18,7 @@ interface Transport {
 
 function Transport() {
   const newUtils = utilsStore((state:any) =>state.updateTransport)
+  const [validate, setvalidate] = useState(false)
   const [selectedTransport, setSelectedTransport] = useState<string | null>(null);
   const [transport, setTransport] = useState<Transport[]>([])
   const [transportation, setTransportation] = useState('')
@@ -49,6 +51,7 @@ function Transport() {
   
       setTransport([ newTransport]);
       newUtils({ transport: [newTransportJSON] })
+      setvalidate(!validate)
 
     } else {
       alert('SVP remplissez tous les champs');
@@ -91,7 +94,9 @@ function Transport() {
             <input placeholder='50' value={transportPrice} onChange={(e)=>setTransportPrice(e.target.value)} className=" w-[40%] border border-blue-900 text-yellow-400 p-1 bg-blue-400 rounded-lg  outline-none placeholder-gray-200"/>
             </div>
             <button onClick={handleTransportInfos} className='border border-black bg-gray-200 p-2'>valider</button>
-        </div>
+            <div className=' w-12'>
+              {validate ? <PiCalendarCheckDuotone className='text-green-700 text-4xl'/> : <PiCalendarCheckDuotone className='text-red-700 text-4xl'/>}</div>
+            </div>
     </article>
   )
 }

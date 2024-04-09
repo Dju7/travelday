@@ -1,6 +1,7 @@
 'use client'
 import React, {useState} from 'react'
 import { utilsStore } from '@/store/utils';
+import { PiCalendarCheckDuotone } from "react-icons/pi";
 
 interface Rent {
   isRent: boolean,
@@ -10,6 +11,7 @@ interface Rent {
 }
 
 function Rent() {
+const [validate, setvalidate] = useState(false)
 const [location, setLocation] = useState<Rent[]>([])
 const [isRent, setIsRent ] = useState(false)
 const [vehicule, setVehicule] = useState('')
@@ -36,6 +38,7 @@ const handleRent = () => {
 
     setLocation([newLocation]);
     newUtils({ location: [newLocation] });
+    setvalidate(!validate)
   } else {
     alert('SVP remplissez tous les champs');
   }
@@ -57,7 +60,12 @@ const handleRent = () => {
         <div className='h-[55%] w-full flex flex-col justify-center items-center gap-4'>
           <input value={modele} onChange={(e) => setModele(e.target.value)} disabled={!isRent} placeholder='Modèle: Dacia Sandero' className='w-[40%] text-center border border-blue-900 text-yellow-400 p-1 bg-blue-400 rounded-lg placeholder-gray-200 outline-none'/>
           <input value={vehiculePrice} onChange={(e) => setVehiculePrice(e.target.value)} disabled={!isRent} placeholder='prix en €, ex: 47' className='w-[40%] text-center border border-blue-900 text-yellow-400 p-1 bg-blue-400 rounded-lg placeholder-gray-200 outline-none'/>
-          <button onClick={handleRent} disabled={!isRent} className=' w-16 border border-black bg-gray-200 p-2'>valider</button>
+          <div className='flex gap-14 items-center mt-6'>
+            <button onClick={handleRent} disabled={!isRent} className=' w-32 border border-black bg-gray-200 p-2'>valider</button>
+            <div className=' w-12'>
+                {validate ? <PiCalendarCheckDuotone className='text-green-700 text-4xl'/> : <PiCalendarCheckDuotone className='text-red-700 text-4xl'/>}
+              </div>
+          </div>
         </div>
         
     </article>

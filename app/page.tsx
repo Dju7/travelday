@@ -4,6 +4,7 @@ import { ImCompass2 } from "react-icons/im";
 import { FaRoute } from "react-icons/fa";
 import { BsFillJournalBookmarkFill } from "react-icons/bs";
 import Image from "next/image";
+import Footer from "./components/footer/Footer";
 
 
 
@@ -43,17 +44,17 @@ const handleSubmit = async (e: {currentTarget: any; preventDefault: any; }) => {
     <>
     <main className=" bg-accueil bg-cover bg-center" >
       <div className=" h-[80%] w-full flex flex-col justify-center items-center ">
-      <h1 className=" mt-40 text-9xl font-bold text-sky-400 opacity-90"><span className="text-[11rem] text-violet-600">T</span>RAVEL<span className="text-[11rem] text-yellow-500">D</span>IARY</h1>
-      <div className="h-[20%] w-full flex justify-center items-center gap-4  rounded-xl mt-10 bg-white/40 ">
-            <div className="w-[20%] flex flex-col items-center gap-2 text-black">
+      <h1 className=" mt-40 text-9xl font-bold text-blue-700 opacity-90"><span className="text-[11rem] text-violet-600">T</span>RAVEL<span className="text-[11rem] text-yellow-500">D</span>IARY</h1>
+      <div className="h-[20%] w-full flex justify-center items-center gap-4 border-y border-blue-800  mt-10 bg-white/60 ">
+            <div className="w-[20%] flex flex-col items-center gap-2 text-gray-700">
             <p className="text-xl font-bold ">Choisir sa destination</p>
             <ImCompass2 className="text-5xl" />
             </div>
-            <div className="w-[20%] flex flex-col items-center gap-2 text-black">
+            <div className="w-[20%] flex flex-col items-center gap-2 text-gray-700">
             <p className="text-xl font-bold ">Tracer sa voie</p>
             <FaRoute className="text-5xl" />
             </div>
-            <div className="w-[20%] flex flex-col items-center gap-2 text-black">
+            <div className="w-[20%] flex flex-col items-center gap-2 text-gray-700">
             <p className="text-xl font-bold">Enregistrer ses données</p>
             <BsFillJournalBookmarkFill className="text-5xl" />
             </div>
@@ -62,10 +63,10 @@ const handleSubmit = async (e: {currentTarget: any; preventDefault: any; }) => {
       </div>
       <div className="h-[20%] w-full flex flex-col justify-center items-center">
         <form onSubmit={handleSubmit} className="w-[70%] h-[80%] px-6 flex flex-col md:flex-row justify-center items-center gap-4 lg:gap-8   ">
-          <input type="email" name='email' className="w-[70%] md:w-[20%] h-[30%] p-2 rounded-xl border-2 border-sky-400 outine-none " placeholder="entrez votre adresse e-mail"/>
-          <input type='text' name='username' className="w-[70%] md:w-[20%] h-[30%] p-2 rounded-xl border-2 border-purple-400 outine-none " placeholder="entrez votre username"/>
-          <input type='password' name='password' className="w-[70%] md:w-[20%] h-[30%] p-2 rounded-xl border-2 border-red-500 outline-none" placeholder="entrez un mot de passe"/>
-          <button type='submit' className="p-2 w-[60%] md:w-[20%] h-[30%] bg-blue-500 text-white text-xl rounded-xl ">INSCRIPTION</button>
+          <input type="email" name='email' className="text-white w-[70%] md:w-[20%] h-[30%] p-2 bg-indigo-600 rounded-xl border-2 border-white outine-none " placeholder="entrez votre adresse e-mail"/>
+          <input type='text' name='username' className="text-white w-[70%] md:w-[20%] h-[30%] p-2 bg-indigo-600 rounded-xl border-2 border-white outine-none " placeholder="choisissez username"/>
+          <input type='password' name='password' className="text-white w-[70%] md:w-[20%] h-[30%] p-2 bg-indigo-600 rounded-xl border-2 border-white outine-none" placeholder="choisissez mot de passe"/>
+          <button type='submit' className="p-2 w-[60%] md:w-[20%] h-[30%] bg-blue-700 text-white text-xl rounded-xl ">INSCRIPTION</button>
         </form>
           <Link href='/board'>Board</Link>
       </div>
@@ -90,11 +91,9 @@ const handleSubmit = async (e: {currentTarget: any; preventDefault: any; }) => {
         <div className="h-full w-[65%] bg-voyageur bg-cover bg-center" />
 
       </div>
-
     </div>
-    <div className="w-full h-[300px] bg-indigo-400">
-
-    </div>
+    <Footer />
+    
     </>
   );
 }
