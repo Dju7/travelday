@@ -76,7 +76,7 @@ const handleSubmit = async (e: {currentTarget: any; preventDefault: any; }) => {
         <h2 className="text-blue-900 text-5xl w-[60%] font-bold mb-2">Votre voyage, votre itinéraire...</h2> 
         <p className="ml-4 w-[60%] text-blue-600 text-2xl font-bold">Le compagnon de voyage ultime - organiser, découvrir et vivre des expériences inoubliables</p>
         <p className="ml-4 w-[60%] text-blue-600 font-bold text-2xl mb-4">Une planification sans souci à portée de main - C'est gratuit, inscrivez-vous, l'aventure comme ici.</p>
-        <p className="bg-pink-300 h-10 p-2 rounded-xl text-white mr-[820px] cursor-pointer hover:bg-violet-500 ">Laissez un commentaire dans le livre D'or</p>
+        <p className="bg-[#fa9746] h-10 p-2 rounded-xl text-white mr-[820px] cursor-pointer hover:bg-violet-500 ">Laissez un commentaire dans le livre D'or</p>
       </div>   
       <div className="h-[72%] w-[60%] flex justify-center items-center ">
         <div className="relative flex flex-col h-full w-[35%] gap-4 items-center">

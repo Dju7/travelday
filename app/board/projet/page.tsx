@@ -46,14 +46,15 @@ export default function page() {
     if (countryData) {
       newLocalisation({
         country: countryData.name,
-        latlng: countryData.latlng
+        latlng: countryData.latlng,
+        image: countryData.urlImage
       });
     }
     
   }
   
   return (
-    <section className='relative z-0 bg-blue-100 bg-opacity-40 border-2 border-white'>
+    <section className='relative z-0 bg-blue-300 bg-opacity-30 border-2 border-white'>
       
       <div className='absolute z-20 h-full w-full p-4 flex flex-col justify-center items-center gap-4'>
       <div className={`h-[40%] w-full ${countryData ? '' : 'bg-destination'} bg-cover bg-center rounded-xl flex flex-col gap-4 justify-center items-center`} style={countryData ? { backgroundImage: `url(${countryData.urlImage})` } : {}}>

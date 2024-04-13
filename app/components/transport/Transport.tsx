@@ -62,10 +62,10 @@ function Transport() {
     <article className='flex flex-col w-[60%] h-full bg-blue-200'>
         <div className='h-6 text-yellow-400 bg-sky-500 text-center'>TRANSPORT</div>
         <div className='h-24 flex justify-center items-center gap-10 text-xl '> 
-        <p className={` p-1 border border-blue-500 rounded-full text-4xl ${selectedTransport === 'avion' ? 'text-red-400 border border-red-400' : 'text-blue-500'}`} onClick={() => handleTransportSelection('avion')}> <FaPlane/></p>
-        <p className={`p-1 border border-blue-500 rounded-full text-4xl ${selectedTransport === 'train' ? 'group text-red-400 border border-red-400' : 'text-blue-500'}`} onClick={() => handleTransportSelection('train')}> <FaTrain/></p>
-        <p className={`p-1 border border-blue-500 rounded-full text-4xl ${selectedTransport === 'bateau' ? 'text-red-400 border border-red-400' : 'text-blue-500'}`} onClick={() => handleTransportSelection('bateau')}> <IoMdBoat/></p>
-        <p className={`p-1 border border-blue-500 rounded-full text-4xl ${selectedTransport === 'voiture' ? 'text-red-400 border border-red-400' : 'text-blue-500'}`} onClick={() => handleTransportSelection('voiture')}> <FaCar/></p>
+        <p className={` p-1 border border-blue-500 rounded-full text-4xl ${selectedTransport === 'avion' ? 'text-[#fa9746] border border-[#fa9746]' : 'text-blue-500'}`} onClick={() => handleTransportSelection('avion')}> <FaPlane/></p>
+        <p className={`p-1 border border-blue-500 rounded-full text-4xl ${selectedTransport === 'train' ? ' text-[#fa9746] border border-[#fa9746]' : 'text-blue-500'}`} onClick={() => handleTransportSelection('train')}> <FaTrain/></p>
+        <p className={`p-1 border border-blue-500 rounded-full text-4xl ${selectedTransport === 'bateau' ? 'text-[#fa9746] border border-[#fa9746]' : 'text-blue-500'}`} onClick={() => handleTransportSelection('bateau')}> <IoMdBoat/></p>
+        <p className={`p-1 border border-blue-500 rounded-full text-4xl ${selectedTransport === 'voiture' ? 'text-[#fa9746] border border-[#fa9746]' : 'text-blue-500'}`} onClick={() => handleTransportSelection('voiture')}> <FaCar/></p>
         </div>
 
         <div className='h-[50%] w-full flex justify-center items-center'>

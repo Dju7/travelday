@@ -6,7 +6,7 @@ function loggedOut() {
   return (
     <>
     <p 
-    className='text-xl text-blue-700 cursor-pointer hover:text-red-500'
+    className='text-xl text-blue-100 cursor-pointer hover:text-yellow-400'
     onClick={() => signOut({ callbackUrl: '/' })}
     >
       Deconnexion

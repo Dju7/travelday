@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from 'react'
 import CardTrip from '../components/card/CardTrip';
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Tour {
   id: string;
@@ -16,7 +17,6 @@ interface Tour {
 
 function page() {
   const [tourData, setTourData] = useState<Tour[]>([]);
-  
 
   useEffect( ()=> {
     const fetchData = async () => {
@@ -36,16 +36,24 @@ function page() {
  console.log('donnée tourData', tourData)
 
  return (
-  <section className='relative z-0 p-6 grid grid-cols-4 bg-blue-100 bg-opacity-40 border-2 border-white gap-6'>
-    <Image src='/projet.png' alt="dessin trajet" className='absolute top-[340px] left-[300px] opacity-60 z-1' height={700} width={1000} />
-    {tourData.map((tourItem) => (
-      <CardTrip
-        key={tourItem.id}
-        title={tourItem.title}
-        date={tourItem.date}
-        duration={tourItem.duration}
-      />
-    ))}
+  <section className='relative z-0 p-6 grid grid-cols-4 bg-blue-300 bg-opacity-30 border-2 border-white gap-4 overflow-hidden'>
+    <Image src='/bousole.png' alt="dessin trajet" className='absolute top-[340px] left-[300px] opacity-60 z-1' height={700} width={1000} />
+    {tourData.length > 0 ? (
+        tourData.map((tourItem) => (
+          <Link key={tourItem.id} href={`/board/${tourItem.id}`}>
+            <CardTrip
+              key={tourItem.id}
+              title={tourItem.title}
+              tourId={tourItem.id}
+              date={tourItem.date}
+              duration={tourItem.duration}
+              docs={tourItem.utils}
+            />
+          </Link>
+        ))
+      ) : (
+        <p className='text-white text-3xl'>Recherche de voyages ...</p>
+      )}
   </section>
 );
 }

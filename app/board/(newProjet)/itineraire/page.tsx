@@ -77,8 +77,6 @@ export default function page() {
       duration: duration,
       author: session?.user.username
     }
-    console.log(tourData)
-
     
     try {
       const resp = await fetch('http://localhost:3000/api/tour', {
@@ -104,7 +102,7 @@ export default function page() {
   }
   
   return (
-    <section className='bg-blue-100 bg-opacity-70 border-2 border-white'>
+    <section className='bg-blue-300 bg-opacity-70 border-2 border-white'>
       <div className='p-2 flex justify-center items-center gap-4'>
         <div className='w-[60%] mt-5 ml-4 border-2 border-blue-700'>
           <DynamicMap markers={Markers}  geoloc={(newplace) => setNewplace(newplace)} />

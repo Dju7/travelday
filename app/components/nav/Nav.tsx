@@ -7,21 +7,21 @@ export default function Nav() {
   const pathname = usePathname();
 
     return (
-      <nav className="flex flex-col items-center gap-10 h-full w-full text-xl text-blue-700">        
+      <nav className="flex flex-col items-center gap-10 h-full w-full font-bold text-xl text-blue-100">        
         
-            <Link className={`hover:text-red-500 ${pathname === "/" ? "active" : ""}`}  href="/">
+            <Link className={`hover:text-blue-800 ${pathname === "/" ? "active" : ""}`}  href="/">
               Accueil
             </Link>
           
-            <Link className={`hover:text-red-500 ${pathname === "/board" ? "active" : ""}`}  href="/board">
+            <Link className={`hover:text-blue-800 ${pathname === "/board" ? "active" : ""}`}  href="/board">
               Tableau de bord
             </Link>
         
-            <Link className={`hover:text-red-500 ${pathname === "/board/projet" ? "active" : ""}`} href="/board/projet">
+            <Link className={`hover:text-blue-800 ${pathname === "/board/projet" ? "active" : ""}`} href="/board/projet">
              Nouveau projet
             </Link>
         
-            <Link className={`hover:text-red-500 ${pathname === "/board/travelmap" ? "active" : ""}`}  href="/board/travelmap">
+            <Link className={`hover:text-blue-800 ${pathname === "/board/travelmap" ? "active" : ""}`}  href="/board/travelmap">
               Carte des voyages
             </Link>
           

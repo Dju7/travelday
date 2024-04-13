@@ -11,12 +11,12 @@ main {
   margin-top:50px;
   height: 94vh;
   width: full;
-  background-color: #3B82F6
+  background-color: #2b468b
 
 }
 
 section {
-  width: 85%;
+  width: 90%;
   height: 100%;
   padding: 4px;
   
@@ -30,5 +30,5 @@ section {
 }
 
 .active{
-  color: rgb(252, 252, 41)
+  color: #fa9746
 }

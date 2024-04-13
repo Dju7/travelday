@@ -43,7 +43,7 @@ export default function page() {
         tour: tourId,
         transport: utils.transport.transport,
         booking: utils.booking.booking,
-        location: utils.location.location
+        location: utils.location.location,
       };
   
       const resp = await fetch('http://localhost:3000/api/utils', {
@@ -69,9 +69,9 @@ export default function page() {
 
 
   return (
-    <section className='flex flex-col justify-center items-center bg-blue-100 bg-opacity-40 border-2 border-white gap-3'>
+    <section className='flex flex-col justify-center items-center bg-blue-300 bg-opacity-40 border-2 border-white gap-3'>
       <div className='h-10 w-full flex justify-center items-center'>
-          <h3 className='text-4xl text-blue-600'>INFORMATIONS UTILES</h3>
+          <h3 className='text-4xl text-[#fa9746]'>INFORMATIONS UTILES</h3>
       </div>
       <div className='h-[45%] w-[98%] flex gap-4'>
         <Transport/>
@@ -81,7 +81,7 @@ export default function page() {
         <Lodgings lodges={booking}/>
       </div>
       <div className='h-[8%] w-[98%]  flex justify-between items-center'>
-        <p className='text-blue-700 font-bold text-2xl'>Budget minimal: XXXX €</p>
+        <p className='text-[#fa9746] font-bold text-2xl'>Budget minimal: XXXX €</p>
         <button onClick={handleClick} className='h-[90%] w-[10%] bg-gray-200 text-black'>Créer voyage</button>
       
       </div>

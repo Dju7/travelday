@@ -22,8 +22,9 @@ export default function RootLayout({
         <Providers>
           <SessionProviders>
           <Header />
-          </SessionProviders>
+         
           {children}
+          </SessionProviders>
           
         </Providers> 
                
