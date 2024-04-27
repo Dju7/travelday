@@ -37,14 +37,14 @@ export default function page() {
   const handleSubmit = (e: { preventDefault: () => void; }) => {
     e.preventDefault(); // Prevent the default form submission
   
-    if (newplace && city && descr && step && booking) {
+    if (newplace && city && descr && step) {
       // Create a new marker object with the entered data
       const newMarker = {
         step: step,
         position: newplace,
         city: city,
         description: descr,
-        booking: booking, 
+        booking: booking || "même hebergement", 
       };
       
       // Update the Markers state with the new marker
@@ -103,16 +103,19 @@ export default function page() {
   
   return (
     <section className='bg-blue-300 bg-opacity-70 border-2 border-white'>
-      <div className='p-2 flex justify-center items-center gap-4'>
-        <div className='w-[60%] mt-5 ml-4 border-2 border-blue-700'>
+      <div className='p-2 flex flex-col lg:flex-row justify-center items-center gap-4'>
+
+        {/* BLOC MAP */}
+        <div className='w-full lg:w-[60%] mt-5 ml-4 border-2 border-blue-700'>
           <DynamicMap markers={Markers}  geoloc={(newplace) => setNewplace(newplace)} />
         </div>
-        <div className='w-[40%] h-[740px] flex flex-col gap-6'>
+
+        {/*BLOC DATA */}
+        <div className='w-full lg:w-[40%] h-[750px] flex flex-col mt-4 gap-6'>
           <div className="w-full h-[75%] bg-blue-200 flex flex-col justify-center items-center border border-blue-500 rounded-xl">
             <h3 className='text-3xl text-center text-blue-500'>Choix d'itinéraire</h3>
-
             <form onSubmit={handleSubmit} className="h-[90%] w-[95%] flex flex-col justify-center items-center gap-2 text-blue-500">
-              <div className="h-10 w-[85%] flex justify-center items-center border border-blue-700 bg-black rounded-xl mb-4">
+              <div className="h-10 w-[85%] flex justify-center items-center border border-blue-700 bg-black mb-4">
                 {newplace && (
                   <p className="text-lg ">{`Latitude: ${newplace.lat.toFixed(6)} - Longitude: ${newplace.lng.toFixed(6)}`}</p>
                 )}
@@ -146,16 +149,17 @@ export default function page() {
             </form>
            
           </div>
-          <div className="w-full h-[25%] bg-blue-200 flex flex-col justify-center items-center border border-blue-500 rounded-xl gap-4">
-          <h3 className='text-3xl text-center text-blue-500'>{newLocalisation.country}</h3>
-          <div className=' w-[90%] h-14 flex justify-center items-center gap-4'>
-          <p className='text-lg text-blue-3500'>Année:</p>
-          <input className='w-[80%] h-8 bg-black p-2 text-center text-lg text-blue-500' value={date} onChange={(e) => setDate(e.target.value)} placeholder='ex: octobre - 2023' />
-          <p className='text-lg text-blue-3500'>durée:</p>
-          <input className='w-[80%] h-8 bg-black p-2 text-center text-lg text-blue-500' value={duration} onChange={(e) => setDuration(e.target.value)} placeholder='ex: 23 jours' />
-          </div>
-          <button className="bg-gray-200 p-2 mt-2 mb-4 border border-black text-black" onClick={handleTour}>Enregistrer l'itinéraire</button>        
-          </div>            
+
+          <div className="w-full h-[25%] bg-blue-200 flex flex-col justify-center items-center border border-blue-500 rounded-xl gap-4"> 
+            <h3 className='text-3xl text-center text-blue-500'>{newLocalisation.country}</h3> 
+            <div className=' w-[90%] h-14 flex justify-center items-center gap-4'>
+              <p className='text-lg text-blue-3500'>Année:</p>
+              <input className='w-[80%] h-8 bg-black p-2 text-center text-lg text-blue-500' value={date} onChange={(e) => setDate(e.target.value)} placeholder='ex: octobre - 2023' />
+              <p className='text-lg text-blue-3500'>durée:</p>
+              <input className='w-[80%] h-8 bg-black p-2 text-center text-lg text-blue-500' value={duration} onChange={(e) => setDuration(e.target.value)} placeholder='ex: 23 jours' />
+              </div>
+              <button className="bg-gray-200 p-2 mb-2 border border-black text-black" onClick={handleTour}>Enregistrer l'itinéraire</button>        
+            </div>            
         </div>
         <Link href="/board/documents"> next</Link>
 

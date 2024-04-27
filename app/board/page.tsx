@@ -1,8 +1,8 @@
-'use client'
-import React, {useState, useEffect} from 'react'
-import CardTrip from '../components/card/CardTrip';
-import Image from 'next/image';
-import Link from 'next/link';
+"use client";
+import React, { useState, useEffect } from "react";
+import CardTrip from "../components/card/CardTrip";
+import Image from "next/image";
+import Link from "next/link";
 
 interface Tour {
   id: string;
@@ -18,27 +18,33 @@ interface Tour {
 function page() {
   const [tourData, setTourData] = useState<Tour[]>([]);
 
-  useEffect( ()=> {
+  useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/api/tour/getTourAll')
-        const tour = await response.json()
-        setTourData(tour)
-
-      } catch(error) {
-        console.error(error)
+        const response = await fetch(
+          "http://localhost:3000/api/tour/getTourAll"
+        );
+        const tour = await response.json();
+        setTourData(tour);
+      } catch (error) {
+        console.error(error);
       }
-    }
-    fetchData()
+    };
+    fetchData();
+  }, []);
 
-  }, [])
+  console.log("donnée tourData", tourData);
 
- console.log('donnée tourData', tourData)
-
- return (
-  <section className='relative z-0 p-6 grid grid-cols-4 bg-blue-300 bg-opacity-30 border-2 border-white gap-4 overflow-hidden'>
-    <Image src='/bousole.png' alt="dessin trajet" className='absolute top-[340px] left-[300px] opacity-60 z-1' height={700} width={1000} />
-    {tourData.length > 0 ? (
+  return (
+    <section className="relative z-0 p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 bg-blue-300 bg-opacity-30 border border-white gap-4 overflow-auto">
+      <Image
+        src="/world.png"
+        alt="dessin trajet"
+        className="absolute top-[250px] lg:top-[30px] left-2 lg:left-[350px] opacity-20 z-1"
+        height={700}
+        width={800}
+      />
+      {tourData.length > 0 ? (
         tourData.map((tourItem) => (
           <Link key={tourItem.id} href={`/board/${tourItem.id}`}>
             <CardTrip
@@ -52,10 +58,10 @@ function page() {
           </Link>
         ))
       ) : (
-        <p className='text-white text-3xl'>Recherche de voyages ...</p>
+        <p className="text-white text-3xl">Recherche de voyages ...</p>
       )}
-  </section>
-);
+    </section>
+  );
 }
 
-export default page
+export default page;

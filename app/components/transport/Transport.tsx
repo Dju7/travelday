@@ -59,7 +59,7 @@ function Transport() {
   }
 
   return (
-    <article className='flex flex-col w-[60%] h-full bg-blue-200'>
+    <article className='flex flex-col w-full lg:w-[60%] h-[350px] bg-blue-200'>
         <div className='h-6 text-yellow-400 bg-sky-500 text-center'>TRANSPORT</div>
         <div className='h-24 flex justify-center items-center gap-10 text-xl '> 
         <p className={` p-1 border border-blue-500 rounded-full text-4xl ${selectedTransport === 'avion' ? 'text-[#fa9746] border border-[#fa9746]' : 'text-blue-500'}`} onClick={() => handleTransportSelection('avion')}> <FaPlane/></p>

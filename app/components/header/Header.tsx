@@ -39,8 +39,8 @@ export default  function Header() {
  }
   return (
     <header className='bg-gradient-to-t from-[#2b468b] to-blue-500 fixed top-0 h-12 w-full flex justify-between items-center z-1000 '>
-        <h2 className='text-2xl ml-4 text-[#fa9746]'><span className='font-bold text-3xl'>T</span>RAVEL<span className='font-bold text-3xl'>D</span>IARY</h2>
-        <p className='text-3xl italic text-[#fa9746]'>{status === "authenticated" ? session.user.username : ""}</p>
+        <h2 className='text-lg ml-4 text-red-400'><span className='font-bold text-3xl'>T</span>HYNK<span className='font-bold text-3xl'>T</span>RAVEL</h2>
+        <p className='text-3xl italic text-yellow-400'>{status === "authenticated" ? session.user.username : ""}</p>
         <p className='text-2xl text-cyan-400 mr-4 cursor-pointer hover:text-[#fa9746]' onClick={handleModal}>Connexion</p>  
 
         {/* MODAL */}

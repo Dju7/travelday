@@ -7,7 +7,6 @@ import Header from "./components/header/Header";
 export const metadata: Metadata = {
   title: "TravelDiary",
   description: "Organiser, plannifier, budgeter ses voyages",
-  
 };
 
 export default function RootLayout({
@@ -17,18 +16,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body >
-      
+      <body>
         <Providers>
           <SessionProviders>
-          <Header />
-         
-          {children}
+            <Header />
+            {children}
           </SessionProviders>
-          
-        </Providers> 
-               
-        </body>
+        </Providers>
+      </body>
     </html>
   );
 }

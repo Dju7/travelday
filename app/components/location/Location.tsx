@@ -45,7 +45,7 @@ const handleRent = () => {
 }
 
   return (
-    <article className='flex flex-col w-[40%] h-full bg-blue-200'>
+    <article className='flex flex-col w-[80%] lg:w-[40%] h-[350px] bg-blue-200'>
         <div className='h-6 text-yellow-400 bg-sky-500 text-center'>LOCATION VEHICULES</div>
         <div className='h-[30%] mt-6 w-full flex flex-col justify-center mt-4 items-center gap-4'>
           <label className='text-xl'>Location d'un véhicule ?</label>
