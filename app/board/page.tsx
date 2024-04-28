@@ -17,6 +17,7 @@ interface Tour {
 
 function page() {
   const [tourData, setTourData] = useState<Tour[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,6 +29,8 @@ function page() {
         setTourData(tour);
       } catch (error) {
         console.error(error);
+      } finally {
+        setIsLoading(false);
       }
     };
     fetchData();
@@ -37,13 +40,18 @@ function page() {
 
   return (
     <section className="relative z-0 p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 bg-blue-300 bg-opacity-30 border border-white gap-4 overflow-auto">
+       {isLoading && (
+      <div className="w-full h-full flex justify-center items-center text-white text-5xl">Loading...</div>
+      )}
+      <div className="absolute h-[800px] w-[800px] z-1 top-10 left-1/4">
       <Image
         src="/world.png"
         alt="dessin trajet"
-        className="absolute top-[250px] lg:top-[30px] left-2 lg:left-[350px] opacity-20 z-1"
-        height={700}
-        width={800}
+        fill={true}
+        className="object-contain opacity-40"
+        
       />
+      </div>
       {tourData.length > 0 ? (
         tourData.map((tourItem) => (
           <Link key={tourItem.id} href={`/board/${tourItem.id}`}>
@@ -58,7 +66,7 @@ function page() {
           </Link>
         ))
       ) : (
-        <p className="text-white text-3xl">Recherche de voyages ...</p>
+        ""
       )}
     </section>
   );

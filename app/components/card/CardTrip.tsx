@@ -2,22 +2,11 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { PiFileDocDuotone } from "react-icons/pi";
-import { TourIdStore } from "@/store/tourID";
 
 
-
-
-
-export default function CardTrip({title, tourId, date, duration, docs}: any) {
+export default function CardTrip({title, date, duration, docs}: any) {
   const [image, setImage] = useState('')
-  const tourIdState = TourIdStore(state => state);
-  const updateTourId = tourIdState.updateTourId
-
-
-  const handleClick = () => {
-    updateTourId(tourId)
-  }
-
+  
   useEffect(() => {
     const getCountries = async () => {
       try {
@@ -35,10 +24,7 @@ export default function CardTrip({title, tourId, date, duration, docs}: any) {
     getCountries();
   }, [title]);
 
-  console.log(image)
  
-  
-  
   return (
     <article className="z-20 h-[390px] w-[350px] border border-blue-800  shadow-xl  flex flex-col bg-gradient-to-t from-[#2b468b] to-blue-500 rounded-xl transform transition hover:scale-105 ">
       <div className="h-[45%] w-full flex justify-center items-center">
@@ -51,9 +37,9 @@ export default function CardTrip({title, tourId, date, duration, docs}: any) {
         <p className="text-xl ">{date}</p>
         <p className="text-xl ">{duration}</p>
       </div>
-      <div className=" mt-4 h-12 flex justify-end items-center p-2">
+      <div className="relative z-1 mt-4 h-12 flex justify-end items-center p-2">
         {
-          docs.length === 0 ? <PiFileDocDuotone className=" cursor-pointer text-4xl text-blue-100 hover:text-red-400" onClick={handleClick}/> : ''
+          docs.length === 0 ? <PiFileDocDuotone className=" cursor-pointer text-4xl text-red-400"/> : ''
         }
       </div>
       

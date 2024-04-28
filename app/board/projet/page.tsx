@@ -63,15 +63,15 @@ export default function page() {
               : {}
           }
         >
-          <h3 className="text-6xl text-red-600 font-bold rounded-xl ">
-            Entrez un Pays
+          <h3 className="text-6xl p-1 text-white bg-black/50 font-bold rounded-xl ">
+            où voulez-vous aller ?
           </h3>
           <input
-            className="w-[40%] h-12 p-2 bg-blue-200 bg-opacity-60 border-2 border-white font-bold text-blue-500"
+            className="w-[40%] h-12 p-2 bg-blue-300 bg-opacity-90 border-2 border-white font-bold text-blue-800"
             onChange={(e) => setCountry(e.target.value)}
           />
           <button
-            className="p-1 w-[10%] h-10 bg-blue-600 text-xl font-bold text-white rounded-xl mb-4"
+            className="p-1 w-[10%] h-10 bg-gradient-to-l from-black/80 to-blue-500 text-xl font-bold text-white rounded-xl mb-4 hover:bg-gradient-to-r from-black/80 to-blue-500"
             onClick={getCountries}
           >
             Voir

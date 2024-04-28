@@ -67,7 +67,7 @@ export default function page() {
   return (
     <section className="flex flex-col justify-center items-center bg-blue-300 bg-opacity-40 border-2 border-white gap-3 overflow-auto">
       <div className="h-6 w-full flex justify-center items-center">
-        <h3 className="text-4xl text-[#fa9746]">INFORMATIONS UTILES</h3>
+        <h3 className="text-4xl text-yellow-400">INFORMATIONS UTILES</h3>
       </div>
       <div className="min-h-[350px] w-[98%] flex flex-col lg:flex-row items-center gap-4">
         <Transport />
@@ -77,8 +77,8 @@ export default function page() {
         <Lodgings lodges={booking} />
       </div>
       <div className="h-[8%] w-[98%]  flex justify-between items-center">
-        <p className="text-[#fa9746] font-bold text-2xl">
-          Budget minimal: XXXX €
+        <p className="text-white font-bold text-2xl cursor-pointer hover:underline" onClick={() => router.push("/board")}>
+          Remplir plus tard 
         </p>
         <button
           onClick={handleClick}

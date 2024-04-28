@@ -94,7 +94,7 @@ export default function Home() {
         </div>
       </main>
 
-      <div className="h-screen w-full flex flex-col items-center">
+      <div className="h-[120vh] w-full flex flex-col items-center">
 
         <div className="h-[320px] w-full flex flex-col justify-center items-center">
           <h2 className="text-blue-900 text-4xl 2xl:text-5xl w-[90%] lg:w-[60%] font-bold mb-2">
