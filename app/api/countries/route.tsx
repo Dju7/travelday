@@ -53,10 +53,42 @@ const countries = [
                 "change": "1 euro = 36.95 THB"
               }
             ]
-          }
-    
+          },
+          {
+            "name": "Japon",
+            "capital": "Tokyo",
+            "langue": "Japonais",
+            "superficie": "377 975 km²",
+            "population": "125,84 millions",
+            "incontournables": "Tokyo, Kyoto, Osaka, Mont Fuji, Nara, Hiroshima, Hokkaido, Okinawa, Temple Kinkaku-ji, Château d'Himeji",
+            "activités": "visites culturelles, randonnées, temples et sanctuaires, bains publics (onsen), gastronomie, shopping, culture pop (anime et manga)",
+            "urlImage": "https://cdn.futura-sciences.com/cdn-cgi/image/width=1920,quality=50,format=auto/sources/images/futura-partir-au-japon.jpeg",
+            "latlng": "35.6762, 139.6503",
+            "monnaie": [
+                {
+                    "code": "JPY",
+                    "change": "1 euro = 160.17 JPY"
+                }
+            ]
+        },
+        {
+            "name": "France",
+            "capital": "Paris",
+            "langue": "Français",
+            "superficie": "551 695 km²",
+            "population": "67,1 millions",
+            "incontournables": "Paris, Versailles, Côte d'Azur, Mont Saint-Michel, Loire Valley, Provence, Lyon, Bordeaux, Normandie, Alpes, Disneyland Paris",
+            "activités": "visites culturelles, randonnées, plages, gastronomie, vignobles, musées, shopping, festivals, ski, visites historiques",
+            "urlImage": "https://a.travel-assets.com/findyours-php/viewfinder/images/res70/506000/506675-pont-neuf.jpg",
+            "latlng": "48.8566, 2.3522",
+            "monnaie": [
+                {
+                    "code": "EUR",
+                    "change": "1 euro = 1 EUR"
+                }
+            ]
+        },  
 ]
-
 
 
 export async function GET(req:Request, res:Response) {

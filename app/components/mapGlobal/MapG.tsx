@@ -65,7 +65,11 @@ const MyMap = () => {
       <MarkerClusterGroup>
       {tourItinerary && tourItinerary.map((trip: TourItem[], index: number) => (
       trip.map((location: TourItem, position: number) => (
-        <Marker key={`${index}-${position}`} position={[location.position.lat, location.position.lng]} icon={customIcon}>
+        <Marker 
+          key={`${index}-${position}`} 
+          position={[location.position.lat, location.position.lng]} 
+          icon={customIcon}
+          >
             <Popup minWidth={100}>
               <div>
                 <p className='bg-sky-100 p-2 rounded-xl text-blue-500 text-center'>Etape: {location.step}</p>

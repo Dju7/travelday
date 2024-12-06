@@ -11,7 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'accueil': "url('/mainback.jpg')",
+        'accueil': "url('/mainback1.jpg')",
         'destination': "url('/ban.jpg')",
         'voyageur': "url('/voyageur.jpg')"
         

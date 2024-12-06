@@ -112,53 +112,53 @@ export default function page() {
 
         {/*BLOC DATA */}
         <div className='w-full lg:w-[40%] h-[750px] flex flex-col mt-4 gap-6'>
-          <div className="w-full h-[75%] bg-blue-200 flex flex-col justify-center items-center border border-blue-500 rounded-xl">
-            <h3 className='text-3xl text-center text-blue-500'>Choix d'itinéraire</h3>
-            <form onSubmit={handleSubmit} className="h-[90%] w-[95%] flex flex-col justify-center items-center gap-2 text-blue-500">
-              <div className="h-10 w-[85%] flex justify-center items-center border border-blue-700 bg-black mb-4">
+          <div className="w-full h-[75%] bg-gradient-to-b from-blue-200 to-blue-300 flex flex-col justify-center items-center border border-blue-800 rounded-xl">
+            <h3 className='text-3xl text-center text-blue-800'>Choix d'itinéraire</h3>
+            <form onSubmit={handleSubmit} className="h-[90%] w-[95%] flex flex-col justify-center items-center gap-2 text-blue-700">
+              <div className="h-10 w-[85%] flex justify-center items-center border border-blue-500  bg-gray-200 mb-4">
                 {newplace && (
                   <p className="text-lg ">{`Latitude: ${newplace.lat.toFixed(6)} - Longitude: ${newplace.lng.toFixed(6)}`}</p>
                 )}
               </div>
               <div className='flex h-12 justify-center items-center gap-6 w-[80%]'>
                 <label>N°etape:</label>
-                <input onChange={(e) => setStep(e.target.value)} value={step} className='w-8 h-8 bg-black p-2' />
+                <input onChange={(e) => setStep(e.target.value)} value={step} className='w-8 h-8 border border-blue-500  bg-gray-200 p-2' />
                 <label>Lieu:</label>
-                <input onChange={(e) => setCity(e.target.value)} value={city} className='bg-black w-[90%] h-8 p-2' />
+                <input onChange={(e) => setCity(e.target.value)} value={city} className='border border-blue-500  bg-gray-200 w-[90%] h-8 p-2' />
               </div>
               <label>Description</label>
-              <input onChange={(e) => setDescr(e.target.value)} value={descr} className='bg-black w-[80%] h-8 p-2' />
+              <input onChange={(e) => setDescr(e.target.value)} value={descr} className='border border-blue-500  bg-gray-200 w-[80%] h-8 p-2' />
               Trouver un hebergement :
               <div className='flex justify-between items-center w-[80%] h-16 gap-4'>
                 <p>
-                <a href={`https://www.booking.com/${city}`} target="_blank" className=' bg-white p-2 font-bold'>Booking.com</a>
+                <a href={`https://www.booking.com/${city}`} target="_blank" className=' bg-white p-2 font-bold shadow-lg shadow-blue-500 hover:bg-blue-800 hover:text-white'>Booking.com</a>
                 </p>
                 <p>
-                  <a href={`https://www.airbnb.fr/a/stays/${city}`} target='_blank' className=' bg-white p-2 font-bold'>AirBnB</a>
+                  <a href={`https://www.airbnb.fr/a/stays/${city}`} target='_blank' className=' bg-white p-2 font-bold shadow-lg shadow-blue-500 hover:bg-blue-800 hover:text-white'>AirBnB</a>
                 </p>
                 <p>
-                <a href={`https://www.hometogo.fr/${city}`} target='_blank' className=' bg-white p-2 font-bold'>HomeToGo</a>
+                <a href={`https://www.hometogo.fr/${city}`} target='_blank' className=' bg-white p-2 font-bold shadow-lg shadow-blue-500 hover:bg-blue-800 hover:text-white'>HomeToGo</a>
                 </p>
               </div>
               <label>Nom de l'hotel ou de la Reservation:</label>
-              <input onChange={(e) => setBooking(e.target.value)} value={booking} className='bg-black w-[80%] h-8 p-2' /> 
+              <input onChange={(e) => setBooking(e.target.value)} value={booking} className='border border-blue-500  bg-gray-200 w-[80%] h-8 p-2' /> 
               <div className='flex justify-between items-center w-[80%]'>
-              <button type="submit" className="bg-gray-200 p-2 mt-4 border border-black text-black">Ajouter marker</button>
-              <p className="bg-gray-200 p-2 mt-4 border border-black text-black mb-2" onClick={handleLastDelete}>supprimer dernier</p>
+              <button type="submit" className="bg-blue-800 p-2 mt-4 text-white shadow-lg shadow-blue-500 hover:bg-green-400">Ajouter marker</button>
+              <p className=" mt-4 bg-blue-800 p-2 mt-4 text-white shadow-lg shadow-blue-500 hover:bg-red-400 mb-2" onClick={handleLastDelete}>supprimer dernier</p>
               </div>
             </form>
            
           </div>
 
-          <div className="w-full h-[25%] bg-blue-200 flex flex-col justify-center items-center border border-blue-500 rounded-xl gap-4"> 
-            <h3 className='text-3xl text-center text-blue-500'>{newLocalisation.country}</h3> 
+          <div className="w-full h-[25%] bg-gradient-to-b from-blue-200 to-blue-300 flex flex-col justify-center items-center border border-blue-500 rounded-xl gap-4"> 
+            <h3 className='text-3xl text-center text-blue-800'>{newLocalisation.country}</h3> 
             <div className=' w-[90%] h-14 flex justify-center items-center gap-4'>
               <p className='text-lg text-blue-3500'>Année:</p>
-              <input className='w-[80%] h-8 bg-black p-2 text-center text-lg text-blue-500' value={date} onChange={(e) => setDate(e.target.value)} placeholder='ex: octobre - 2023' />
+              <input className='w-[80%] h-8 border border-blue-500  bg-gray-200 p-2 text-center text-lg text-blue-500' value={date} onChange={(e) => setDate(e.target.value)} placeholder='ex: octobre - 2023' />
               <p className='text-lg text-blue-3500'>durée:</p>
-              <input className='w-[80%] h-8 bg-black p-2 text-center text-lg text-blue-500' value={duration} onChange={(e) => setDuration(e.target.value)} placeholder='ex: 23 jours' />
+              <input className='w-[80%] h-8 border border-blue-500  bg-gray-200 p-2 text-center text-lg text-blue-500' value={duration} onChange={(e) => setDuration(e.target.value)} placeholder='ex: 23 jours' />
               </div>
-              <button className="bg-gray-200 p-2 mb-2 border border-black text-black" onClick={handleTour}>Enregistrer l'itinéraire</button>        
+              <button className="p-2 mb-2 bg-blue-800 text-white shadow-lg shadow-blue-500 hover:bg-purple-400" onClick={handleTour}>Enregistrer l'itinéraire</button>        
             </div>            
         </div>
         <Link href="/board/documents"> next</Link>

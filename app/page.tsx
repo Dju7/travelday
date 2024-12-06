@@ -41,9 +41,9 @@ export default function Home() {
     <>
       <main className=" bg-accueil bg-cover bg-center">
         <div className=" h-[70vh] w-full flex flex-col justify-center items-center ">
-          <h1 className=" mt-40 text-9xl font-bold text-blue-700 opacity-90">
-            <span className="text-[11rem] text-violet-600">T</span>RAVEL
-            <span className="text-[11rem] text-yellow-500">D</span>IARY
+          <h1 className=" mt-40 text-9xl font-bold text-slate-900 opacity-90">
+            <span className="text-[11rem] text-violet-800">T</span>RAVEL
+            <span className="text-[11rem] text-yellow-400">D</span>IARY
           </h1>
           <div className="h-[15vh] w-full flex justify-center items-center gap-4 border-y border-blue-800  mt-10 bg-white/60 ">
             <div className="w-[20%] flex flex-col items-center gap-2 text-gray-700">
@@ -59,33 +59,34 @@ export default function Home() {
               <BsFillJournalBookmarkFill className="text-5xl" />
             </div>
           </div>
+          
         </div>
         <div className="h-[25vh] w-full flex flex-col justify-center items-center">
           <form
             onSubmit={handleSubmit}
-            className="w-[80%] md:w-[70%] h-[350px] px-6 flex flex-col md:flex-row justify-center items-center gap-4 lg:gap-8"
+            className="w-[80%] md:w-[70%] h-[350px] px-4 flex flex-col md:flex-row justify-center items-center gap-4 lg:gap-8"
           >
             <input
               type="email"
               name="email"
-              className="text-white w-full md:w-[20%] h-[30%] p-2 bg-indigo-600 rounded-xl border-2 border-white outine-none placeholder:font-bold "
+              className="text-white w-full md:w-[20%] h-[25%] p-2 bg-indigo-900 rounded-xl border-2 border-white outine-none placeholder:font-bold "
               placeholder="entrez votre adresse e-mail"
             />
             <input
               type="text"
               name="username"
-              className="text-white w-full md:w-[20%] h-[30%] p-2 bg-indigo-600 rounded-xl border-2 border-white outine-none placeholder:font-bold "
+              className="text-white w-full md:w-[20%] h-[25%] p-2 bg-indigo-900 rounded-xl border-2 border-white outine-none placeholder:font-bold "
               placeholder="choisissez username"
             />
             <input
               type="password"
               name="password"
-              className="text-white w-full md:w-[20%] h-[30%] p-2 bg-indigo-600 rounded-xl border-2 border-white outine-none placeholder:font-bold"
+              className="text-white w-full md:w-[20%] h-[25%] p-2 bg-indigo-900 rounded-xl border-2 border-white outine-none placeholder:font-bold"
               placeholder="choisissez mot de passe"
             />
             <button
               type="submit"
-              className="p-2 w-[60%] md:w-[20%] h-[30%] bg-blue-700 text-white text-xl rounded-xl "
+              className="p-2 w-[60%] md:w-[20%] h-[25%] bg-red-600 text-white text-xl rounded-xl "
             >
               INSCRIPTION
             </button>

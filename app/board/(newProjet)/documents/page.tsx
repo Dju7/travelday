@@ -65,7 +65,7 @@ export default function page() {
   };
 
   return (
-    <section className="flex flex-col justify-center items-center bg-blue-300 bg-opacity-40 border-2 border-white gap-3 overflow-auto">
+    <section className="flex flex-col justify-center items-center bg-blue-300 bg-opacity-30 border-2 border-white gap-3 overflow-auto">
       <div className="h-6 w-full flex justify-center items-center">
         <h3 className="text-4xl text-yellow-400">INFORMATIONS UTILES</h3>
       </div>
@@ -77,14 +77,14 @@ export default function page() {
         <Lodgings lodges={booking} />
       </div>
       <div className="h-[8%] w-[98%]  flex justify-between items-center">
-        <p className="text-white font-bold text-2xl cursor-pointer hover:underline" onClick={() => router.push("/board")}>
+        <p className="text-yellow-400 font-bold text-xl cursor-pointer hover:underline" onClick={() => router.push("/board")}>
           Remplir plus tard 
         </p>
         <button
           onClick={handleClick}
-          className="h-10 w-[10%] bg-gray-200 text-black"
+          className="h-10 w-[10%] font-bold bg-white text-blue-800 shadow-lg shadow-blue-500 hover:bg-red-400"
         >
-          Créer voyage
+          Enregistrer
         </button>
       </div>
     </section>

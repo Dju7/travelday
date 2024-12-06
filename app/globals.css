@@ -11,7 +11,7 @@ main {
   margin-top:50px;
   min-height: 94vh;
   width: 100%;
-  background-color: #2b468b
+  background-color: #132a63
 
 }
 
@@ -35,5 +35,5 @@ section {
 }
 
 .active{
-  color: rgb(252, 252, 122)
+  color: rgb(45, 37, 160)
 }

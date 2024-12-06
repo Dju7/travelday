@@ -1,5 +1,5 @@
 'use client'
-import React, {useState} from 'react'
+import React, {ReactNode, useState} from 'react'
 import LodgeBox from '../lodgeBox/LodgeBox';
 import { utilsStore } from '@/store/utils';
 
@@ -9,6 +9,7 @@ interface LodgingsProps {
 }
 
 interface Booking {
+  lodgeName: React.ReactNode;
   nights: string;
   lodgeReservation: string;
   lodgePrice: string;

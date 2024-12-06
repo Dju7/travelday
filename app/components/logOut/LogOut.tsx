@@ -7,7 +7,7 @@ function loggedOut() {
   return (
     <>
     <p 
-    className='text-xl text-blue-100 cursor-pointer hover:text-yellow-400'
+    className='text-xl text-yellow-400 cursor-pointer hover:text-red-400'
     onClick={() => signOut({ callbackUrl: '/' })}
     >
      <FaSignOutAlt className='text-3xl lg:text-5xl'/> 

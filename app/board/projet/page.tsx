@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React, { useState } from "react";
+import Image from "next/image";
 import { geoLocStore } from "@/store/geoloc";
 
 interface CountryData {
@@ -51,7 +52,16 @@ export default function page() {
   };
 
   return (
-    <section className="relative z-0 bg-blue-300 bg-opacity-30 border-2 border-white">
+    <section className="relative z-0 bg-indigo-300 bg-opacity-30 border-2 border-white">
+       <div className="absolute  h-[800px] w-[60%] z-1 top-[3%] left-[20%]">
+      <Image
+        src="/world.png"
+        alt="dessin trajet"
+        fill={true}
+        className="object-contain opacity-30"
+        
+      />
+      </div>
       <div className="absolute z-20 h-full w-full p-4 flex flex-col justify-center items-center gap-4">
         <div
           className={`h-[40%] w-full ${
@@ -63,15 +73,15 @@ export default function page() {
               : {}
           }
         >
-          <h3 className="text-6xl p-1 text-white bg-black/50 font-bold rounded-xl ">
+          <h3 className="text-7xl p-1 text-black font-bold rounded-xl ">
             où voulez-vous aller ?
           </h3>
           <input
-            className="w-[40%] h-12 p-2 bg-blue-300 bg-opacity-90 border-2 border-white font-bold text-blue-800"
+            className="w-[40%] h-12 p-2 bg-blue-300 bg-opacity-90 border-2 border-white font-bold text-blue-800 rounded-xl"
             onChange={(e) => setCountry(e.target.value)}
           />
           <button
-            className="p-1 w-[10%] h-10 bg-gradient-to-l from-black/80 to-blue-500 text-xl font-bold text-white rounded-xl mb-4 hover:bg-gradient-to-r from-black/80 to-blue-500"
+            className="p-1 w-[10%] h-10 border border-blue-800 bg-gradient-to-l from-white to-gray-200 text-xl font-bold text-blue-800 rounded-xl mb-4 hover:bg-gradient-to-r from-black/80 to-blue-500"
             onClick={getCountries}
           >
             Voir
@@ -113,7 +123,7 @@ export default function page() {
           </article>
           <div className="h-[10%] w-[99%] flex justify-end items-center">
             <Link
-              className="h-10 w-52 p-2 border border-black bg-gray-200 text-center"
+              className="h-10 w-52 p-2 font-bold bg-white text-center text-blue-800 shadow-lg shadow-blue-500 hover:bg-blue-800 hover:text-white "
               href="/board/itineraire"
               onClick={handleNewLoc}
             >

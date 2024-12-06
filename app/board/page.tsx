@@ -4,6 +4,7 @@ import CardTrip from "../components/card/CardTrip";
 import Image from "next/image";
 import Link from "next/link";
 
+
 interface Tour {
   id: string;
   title: string;
@@ -39,19 +40,21 @@ function page() {
   console.log("donnée tourData", tourData);
 
   return (
+    
     <section className="relative z-0 p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 bg-blue-300 bg-opacity-30 border border-white gap-4 overflow-auto">
        {isLoading && (
       <div className="w-full h-full flex justify-center items-center text-white text-5xl">Loading...</div>
       )}
-      <div className="absolute h-[800px] w-[800px] z-1 top-10 left-1/4">
+       <div className="absolute h-[750px] w-[750px] z-1 top-10 left-1/4">
       <Image
-        src="/world.png"
+        src="/boussole.png"
         alt="dessin trajet"
         fill={true}
-        className="object-contain opacity-40"
+        className="object-contain op opacity-20"
         
       />
       </div>
+     
       {tourData.length > 0 ? (
         tourData.map((tourItem) => (
           <Link key={tourItem.id} href={`/board/${tourItem.id}`}>

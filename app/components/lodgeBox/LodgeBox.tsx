@@ -1,10 +1,10 @@
 'use client'
-import React, {useState} from 'react'
-import { utilsStore } from '@/store/utils';
+import React, {ReactNode, useState} from 'react'
 import { PiCalendarCheckDuotone } from "react-icons/pi";
 
 
 interface Booking {
+  lodgeName: React.ReactNode;
   nights: string;
   lodgeReservation: string;
   lodgePrice: string;
@@ -22,11 +22,12 @@ const [lodgeReservation, setLodgeReservation] = useState('use client')
 const [lodgePrice, setLodgePrice] = useState('')
 
 
-
+console.log('name', children)
 
 const handleSubmit = () => {
-  if (nights  && lodgePrice) {
+  if (nights  && lodgePrice && lodgeReservation) {
     const newBooking: Booking = {
+      lodgeName: children, 
       nights: nights,
       lodgeReservation: lodgeReservation,
       lodgePrice: lodgePrice
@@ -50,9 +51,9 @@ const handleSubmit = () => {
         <input className='h-6 text-blue-500' value={lodgeReservation} onChange={(e) => setLodgeReservation(e.target.value)} />
         <label className='text-lg'>Prix(€):</label>
         <input className='h-6 text-blue-500' placeholder='50' value={lodgePrice} onChange={(e) => setLodgePrice(e.target.value)} />
-        <div className='flex gap-4'>
-          <button className='h-8 mt-4 border border-black ' type='button' onClick={handleSubmit}>Valider</button>
-          <div className=' w-12'>
+        <div className='flex gap-4 items-center'>
+          <button className='h-8 mt-4 w-24  bg-blue-800 text-white shadow-lg shadow-blue-500 hover:bg-green-400' type='button' onClick={handleSubmit}>Valider</button>
+          <div className=' w-12 mt-4'>
               {validate ? <PiCalendarCheckDuotone className='text-green-700 text-4xl'/> : <PiCalendarCheckDuotone className='text-red-700 text-4xl'/>}
           </div>
         </div>
